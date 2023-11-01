@@ -1,4 +1,5 @@
 ﻿using nanoFramework.Hardware.Esp32.Rmt;
+using System.Drawing;
 
 namespace CCSWE.nanoFramework.NeoPixel
 {
@@ -33,13 +34,14 @@ namespace CCSWE.nanoFramework.NeoPixel
             
             _data = new byte[(totalBits + 1) * 4];
 
-            _onePulse = new byte[] { (byte)(0.7 / MinPulse), 128, (byte)(0.6 / MinPulse), 0 };
-            _zeroPulse = new byte[] { (byte)(0.35 / MinPulse), 128, (byte)(0.8 / MinPulse), 0 };
+            _onePulse = new byte[] { (byte)(0.8 / MinPulse), 128, (byte)(0.45 / MinPulse), 0 };
+            _zeroPulse = new byte[] { (byte)(0.4 / MinPulse), 128, (byte)(0.85 / MinPulse), 0 };
             _resPulse = GetResPulse(MinPulse);
         }
 
-        public void Fill(byte[] color)
+        public void Fill(Color color)
         {
+            var colorBytes = color.ToBytes(ColorOrder.GRB);
             ushort led;
             int i = 0;
             for (led = 0; led < _count; led++)
@@ -50,7 +52,7 @@ namespace CCSWE.nanoFramework.NeoPixel
                     byte bit;
                     for (bit = 0; bit < 8; bit++)
                     {
-                        if ((color[col] & (1 << bit)) != 0)// && (led == _ledIndex))
+                        if ((colorBytes[col] & (1 << bit)) != 0)// && (led == _ledIndex))
                         {
                             _data[0 + i] = _onePulse[0];
                             _data[1 + i] = _onePulse[1];
@@ -74,15 +76,13 @@ namespace CCSWE.nanoFramework.NeoPixel
             _data[1 + i] = _resPulse[1];
             _data[2 + i] = _resPulse[2];
             _data[3 + i] = _resPulse[3];
-
-            _transmitterChannel.SendData(_data, false);
         }
 
         private byte[] GetResPulse(float minPulse)
         {
             var result = new byte[4];
-            var duration0 = (ushort)(25 / minPulse);
-            var duration1 = (ushort)(26 / minPulse);
+            var duration0 = (ushort)(50 / minPulse);
+            var duration1 = (ushort)(50 / minPulse);
 
             var remaining = duration0 % 256;
             result[0] = (byte)remaining;
@@ -95,6 +95,9 @@ namespace CCSWE.nanoFramework.NeoPixel
             return result;
         }
 
-
+        public void Update()
+        {
+            _transmitterChannel.SendData(_data, false);
+        }
     }
 }

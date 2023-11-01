@@ -26,7 +26,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
 
             //BenchmarkRunner.Run(typeof(Program).Assembly);
             BenchmarkRunner.RunClass(typeof(NeoPixelStripBenchmarks));
-            Thread.Sleep(Timeout.Infinite);
+            //Thread.Sleep(Timeout.Infinite);
         }
 
         private static byte[] SerializeCommand(RmtCommand command)

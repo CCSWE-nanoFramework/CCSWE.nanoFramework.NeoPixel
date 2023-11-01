@@ -21,9 +21,13 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="Chipsets\Chipset.cs" />
+    <Compile Include="Drivers\NeoPixelDriver.cs" />
+    <Compile Include="Drivers\Ws2812B.cs" />
     <Compile Include="ColorOrder.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
+    <Compile Include="NeoPixelPulse.cs" />
+    <Compile Include="NeoPixelStripDriver2.cs" />
+    <Compile Include="NeoPixelStripDriver.cs" />
     <Compile Include="NeoPixelStrip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleNeoPixelStrip.cs" />
