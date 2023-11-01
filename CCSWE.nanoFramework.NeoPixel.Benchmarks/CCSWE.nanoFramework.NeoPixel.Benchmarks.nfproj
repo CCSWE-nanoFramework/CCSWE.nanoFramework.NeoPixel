@@ -20,6 +20,7 @@
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
     <Compile Include="BenchmarkBase.cs" />
+    <Compile Include="MathBenchmarks.cs" />
     <Compile Include="TestData.cs" />
     <Compile Include="Reference\Ws28xxNeoPixelStripBenchmarks.cs" />
     <Compile Include="NeoPixelStripBenchmarkBase.cs" />
@@ -62,6 +63,9 @@
     </Reference>
     <Reference Include="System.Diagnostics.Stopwatch">
       <HintPath>..\packages\nanoFramework.System.Diagnostics.Stopwatch.1.2.325\lib\System.Diagnostics.Stopwatch.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Math">
+      <HintPath>..\packages\nanoFramework.System.Math.1.5.29\lib\System.Math.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -26,6 +26,7 @@
     <Compile Include="Drivers\Ws2812B.cs" />
     <Compile Include="ColorOrder.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
+    <Compile Include="Math.cs" />
     <Compile Include="NeoPixelPulse.cs" />
     <Compile Include="NeoPixelStrip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
