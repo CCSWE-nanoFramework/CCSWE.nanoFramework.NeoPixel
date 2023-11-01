@@ -1,10 +1,18 @@
 ﻿using System;
 using System.Drawing;
 
-namespace CCSWE.nanoFramework.NeoPixel.Extensions
+// ReSharper disable once CheckNamespace
+namespace CCSWE.nanoFramework.NeoPixel
 {
+    /// <summary>
+    /// Extension methods for <see cref="Color"/>
+    /// </summary>
     public static class ColorExtensions
     {
+        /// <summary>
+        /// Converts a <see cref="Color"/> to a <see cref="byte[]"/> in the given <see cref="ColorOrder"/>.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static byte[] ToBytes(this Color color, ColorOrder order)
         {
             return order switch

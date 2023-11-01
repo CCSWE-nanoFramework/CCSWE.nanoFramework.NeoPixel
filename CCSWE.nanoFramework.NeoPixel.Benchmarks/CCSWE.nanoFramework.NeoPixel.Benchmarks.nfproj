@@ -15,7 +15,7 @@
     <RootNamespace>CCSWE.nanoFramework.NeoPixel.Benchmarks</RootNamespace>
     <AssemblyName>CCSWE.nanoFramework.NeoPixel.Benchmarks</AssemblyName>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+	<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>

@@ -19,7 +19,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
         public void Setup()
         {
             _colors = ColorHelper.TestColors;
-            _neoPixelStrip = new NeoPixelStrip(19, 47);
+            _neoPixelStrip = new NeoPixelStrip(19, 47);//, ColorOrder.GRB);
             _sampleNeoPixel = new SampleNeoPixelStrip(19, 47);
             _ws28xxNeoPixel = new Ws28xxNeoPixelStrip(19, 47);
         }
@@ -47,9 +47,15 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
         }
 
         [Benchmark]
-        public void NeoPixel_Fill_Byte_Array()
+        public void NeoPixel_SetLed()
         {
-            _neoPixelStrip.Fill(GetColorArray());
+            var color = GetColor();//.ToBytes(ColorOrder.GRB);
+
+            for (var i = 0; i < _neoPixelStrip.Count; i++)
+            {
+                _neoPixelStrip.SetLed(i, color);
+            }
+
             _neoPixelStrip.Update();
         }
 

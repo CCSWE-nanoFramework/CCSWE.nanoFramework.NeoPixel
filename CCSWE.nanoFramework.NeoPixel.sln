@@ -7,6 +7,10 @@ Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "CCSWE.nanoFramework.NeoPixe
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "CCSWE.nanoFramework.NeoPixel.Benchmarks", "CCSWE.nanoFramework.NeoPixel.Benchmarks\CCSWE.nanoFramework.NeoPixel.Benchmarks.nfproj", "{9AD16DA6-28D2-40B8-BD43-A83EDDF7717F}"
 EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "CCSWE.nanoFramework.NeoPixel.Samples", "CCSWE.nanoFramework.NeoPixel.Samples\CCSWE.nanoFramework.NeoPixel.Samples.nfproj", "{10024E76-EA0D-4D5E-8DFA-7E80FCFCDEF0}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "CCSWE.nanoFramework.NeoPixel.UnitTests", "CCSWE.nanoFramework.NeoPixel.UnitTests\CCSWE.nanoFramework.NeoPixel.UnitTests.nfproj", "{C2615A62-E5E4-42A6-943E-81172DCFF082}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,18 @@ Global
 		{9AD16DA6-28D2-40B8-BD43-A83EDDF7717F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AD16DA6-28D2-40B8-BD43-A83EDDF7717F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9AD16DA6-28D2-40B8-BD43-A83EDDF7717F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{10024E76-EA0D-4D5E-8DFA-7E80FCFCDEF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10024E76-EA0D-4D5E-8DFA-7E80FCFCDEF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10024E76-EA0D-4D5E-8DFA-7E80FCFCDEF0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{10024E76-EA0D-4D5E-8DFA-7E80FCFCDEF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10024E76-EA0D-4D5E-8DFA-7E80FCFCDEF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10024E76-EA0D-4D5E-8DFA-7E80FCFCDEF0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C2615A62-E5E4-42A6-943E-81172DCFF082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2615A62-E5E4-42A6-943E-81172DCFF082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2615A62-E5E4-42A6-943E-81172DCFF082}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C2615A62-E5E4-42A6-943E-81172DCFF082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2615A62-E5E4-42A6-943E-81172DCFF082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2615A62-E5E4-42A6-943E-81172DCFF082}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
