@@ -9,7 +9,7 @@ The [NeoPixelStripLowMemory](https://github.com/nanoframework/Samples/tree/main/
 I've never spent time learning how these leds actually work so I'm learning as I go along and would love feedback or contributions from others with more experience in this area.
 
 ## Usage
-See [CCSWE.nanoFramework.NeoPixel.Samples](insert-link-here)
+See [samples](https://github.com/CoryCharlton/CCSWE.nanoFramework.NeoPixel/tree/master/CCSWE.nanoFramework.NeoPixel.Samples) for more details.
 
 Initialize the strip
 ```c#
