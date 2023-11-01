@@ -11,6 +11,29 @@ Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "CCSWE.nanoFramework.NeoPixe
 EndProject
 Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "CCSWE.nanoFramework.NeoPixel.UnitTests", "CCSWE.nanoFramework.NeoPixel.UnitTests\CCSWE.nanoFramework.NeoPixel.UnitTests.nfproj", "{C2615A62-E5E4-42A6-943E-81172DCFF082}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C2D86E1A-CD88-4FBD-80C5-693FA20FA079}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{068201D7-F4DF-4082-A879-C6EF2E5AF319}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{9354FC3A-FA2C-4ABD-AEBA-957195854466}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-solution.yml = .github\workflows\build-solution.yml
+		.github\config.yml = .github\config.yml
+		.github\workflows\update-dependencies.yml = .github\workflows\update-dependencies.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{5E3996DD-1F69-4AD6-9BC5-6D44CB3FA649}"
+	ProjectSection(SolutionItems) = preProject
+		CCSWE.nanoFramework.NeoPixel.nuspec = CCSWE.nanoFramework.NeoPixel.nuspec
+		Directory.Build.props = Directory.Build.props
+		nuget.config = nuget.config
+		version.json = version.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +67,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{068201D7-F4DF-4082-A879-C6EF2E5AF319} = {C2D86E1A-CD88-4FBD-80C5-693FA20FA079}
+		{9354FC3A-FA2C-4ABD-AEBA-957195854466} = {C2D86E1A-CD88-4FBD-80C5-693FA20FA079}
+		{5E3996DD-1F69-4AD6-9BC5-6D44CB3FA649} = {C2D86E1A-CD88-4FBD-80C5-693FA20FA079}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2658FCB3-232B-4454-86E6-685BB35455A6}
