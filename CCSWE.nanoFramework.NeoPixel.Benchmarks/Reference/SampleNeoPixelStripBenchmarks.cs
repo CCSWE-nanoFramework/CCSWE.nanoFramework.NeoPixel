@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using CCSWE.nanoFramework.NeoPixel.Internal;
+﻿using CCSWE.nanoFramework.NeoPixel.Internal;
 using nanoFramework.Benchmark;
 using nanoFramework.Benchmark.Attributes;
 
