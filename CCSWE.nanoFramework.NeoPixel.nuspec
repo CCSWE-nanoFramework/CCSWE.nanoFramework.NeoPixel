@@ -15,8 +15,8 @@
     <description>A fast ESP32 RMT library for controlling LED chipsets (NeoPixel, WS2812B, etc.).</description>
     <repository type="git" url="https://github.com/CoryCharlton/CCSWE.nanoFramework.NeoPixel" commit="$commit$" />
     <copyright>Copyright (c) Cory Charlton</copyright>
-    <tags>nanoFramework C# csharp netmf netnf ccswe neopixel ws2812b</tags>
-    <dependencies>
+    <tags>nanoFramework C# csharp netmf netnf ccswe neopixel ws2812c</tags>
+    <dependencies
       <dependency id="nanoFramework.CoreLibrary" version="1.14.2" />
       <dependency id="nanoFramework.Graphics.Core" version="1.1.37" />
       <dependency id="nanoFramework.Hardware.Esp32.Rmt" version="2.0.1" />

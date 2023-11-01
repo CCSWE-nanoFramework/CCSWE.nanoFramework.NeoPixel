@@ -15,16 +15,19 @@
     <RootNamespace>CCSWE.nanoFramework.NeoPixel.Benchmarks</RootNamespace>
     <AssemblyName>CCSWE.nanoFramework.NeoPixel.Benchmarks</AssemblyName>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
-	<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
     <Compile Include="BenchmarkBase.cs" />
-    <Compile Include="ColorHelper.cs" />
-    <Compile Include="Comparisons\Ws28xxNeoPixelStrip.cs" />
+    <Compile Include="TestData.cs" />
+    <Compile Include="Reference\Ws28xxNeoPixelStripBenchmarks.cs" />
+    <Compile Include="NeoPixelStripBenchmarkBase.cs" />
     <Compile Include="NeoPixelStripBenchmarks.cs" />
+    <Compile Include="StripParameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reference\SampleNeoPixelStripBenchmarks.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Iot.Device.Ws28xx.Esp32">

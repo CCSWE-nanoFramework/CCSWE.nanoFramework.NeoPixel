@@ -1,9 +1,15 @@
 ﻿using nanoFramework.Hardware.Esp32.Rmt;
 using System.Drawing;
 
-namespace CCSWE.nanoFramework.NeoPixel
+namespace CCSWE.nanoFramework.NeoPixel.Internal
 {
-    public class SampleNeoPixelStrip
+    /// <summary>
+    /// This is a reference implementation based on https://github.com/nanoframework/Samples/tree/main/samples/Hardware.Esp32.Rmt/NeoPixelStripLowMemory.
+    /// The code has been slightly altered to correct pulse timings. This implementation is very simple and much faster than the RmtCommand implementations
+    /// (ie: https://github.com/nanoframework/nanoFramework.IoT.Device/tree/develop/devices/Ws28xx.Esp32). The goal is that my implementation should be
+    /// as close to as fast as this code while adding additional functionality and flexibility.
+    /// </summary>
+    internal class SampleNeoPixelStrip
     {
         // 80MHz / 4 => min pulse 0.00us
         protected const byte ClockDivider = 2;
@@ -31,7 +37,7 @@ namespace CCSWE.nanoFramework.NeoPixel
             _transmitterChannel = new TransmitterChannel(transmitterChannelSettings);
 
             var totalBits = 24 * _count;
-            
+
             _data = new byte[(totalBits + 1) * 4];
 
             _onePulse = new byte[] { (byte)(0.8 / MinPulse), 128, (byte)(0.45 / MinPulse), 0 };
@@ -52,7 +58,7 @@ namespace CCSWE.nanoFramework.NeoPixel
                     byte bit;
                     for (bit = 0; bit < 8; bit++)
                     {
-                        if ((colorBytes[col] & (1 << bit)) != 0)// && (led == _ledIndex))
+                        if ((colorBytes[col] & 1 << bit) != 0)// && (led == _ledIndex))
                         {
                             _data[0 + i] = _onePulse[0];
                             _data[1 + i] = _onePulse[1];

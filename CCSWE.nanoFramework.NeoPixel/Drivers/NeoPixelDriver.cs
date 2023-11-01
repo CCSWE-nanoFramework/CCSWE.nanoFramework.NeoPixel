@@ -46,12 +46,12 @@
         /// <summary>
         /// The pulse data for a one pulse (T1).
         /// </summary>
-        public byte[] OnePulse { get; }
+        public NeoPixelPulse OnePulse { get; }
 
         /// <summary>
         /// The pulse data for a reset pulse.
         /// </summary>
-        public byte[] ResetPulse { get; }
+        public NeoPixelPulse ResetPulse { get; }
 
         /// <summary>
         /// The number of RMT cycles that occur in one second.
@@ -61,24 +61,22 @@
         /// <summary>
         /// The pulse data for a zero pulse (T0).
         /// </summary>
-        public byte[] ZeroPulse { get; }
+        public NeoPixelPulse ZeroPulse { get; }
 
         /// <summary>
         /// Creates the zero or one data pulse.
         /// </summary>
         /// <param name="highDuration">The time in microseconds the pulse is high.</param>
         /// <param name="lowDuration">The time in microseconds the pulse is low.</param>
-        protected byte[] GetDataPulse(float highDuration, float lowDuration) => new byte[]
-        {
-            (byte)(highDuration / MicrosecondsPerRmtCycle), 128, (byte)(lowDuration / MicrosecondsPerRmtCycle), 0
-        };
+        protected NeoPixelPulse GetDataPulse(float highDuration, float lowDuration) => 
+            new((byte)(highDuration / MicrosecondsPerRmtCycle), 128, (byte) (lowDuration / MicrosecondsPerRmtCycle), 0);
 
         /// <summary>
         /// Create the reset pulse command.
         /// </summary>
         /// <param name="resetDuration">The time in microseconds for a reset command.</param>
         /// <returns>The reset pulse command.</returns>
-        protected byte[] GetResetPulse(float resetDuration)
+        protected NeoPixelPulse GetResetPulse(float resetDuration)
         {
             var result = new byte[4];
             var duration0 = (ushort)(resetDuration / MicrosecondsPerRmtCycle);
@@ -92,7 +90,7 @@
             result[2] = (byte)remaining;
             result[3] = (byte)((duration1 - remaining) / 256);
 
-            return result;
+            return new NeoPixelPulse(result);
         }
     }
 }

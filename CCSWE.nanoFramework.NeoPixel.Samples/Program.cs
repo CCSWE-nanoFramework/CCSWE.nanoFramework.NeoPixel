@@ -1,19 +1,26 @@
 using System.Drawing;
 using System.Threading;
+using CCSWE.nanoFramework.NeoPixel.Drivers;
 
 namespace CCSWE.nanoFramework.NeoPixel.Samples
 {
     public class Program
     {
-        // Configure the count of pixels
-        private const ushort Count = 47;
 
-        // Adjust the pin number
-        private const byte Pin = 19;
 
         public static void Main()
         {
-            var strip = new NeoPixelStrip(Pin, Count, ColorOrder.GRB);
+            // Configure the number of leds
+            const ushort count = 47;
+
+            // Adjust the pin number
+            const byte pin = 19;
+
+            // Choose the correct driver and color order
+            var driver = new Ws2812B(ColorOrder.GRB);
+
+            // Create the strip
+            var strip = new NeoPixelStrip(pin, count, driver);
 
             strip.Fill(Color.Red);
             strip.Update();

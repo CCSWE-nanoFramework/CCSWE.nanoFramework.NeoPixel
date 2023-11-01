@@ -3,13 +3,13 @@ using System.Drawing;
 
 namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
 {
-    internal static class ColorHelper
+    internal static class TestData
     {
         // ReSharper disable once InconsistentNaming
         private static readonly Random _random = new();
 
-        public static readonly Color TestColor = GetRandomColor();
-        public static readonly Color[] TestColors = GetRandomColors(10);
+        public static readonly Color Color = GetRandomColor();
+        public static readonly Color[] Colors = GetRandomColors(10);
 
         public static Color GetRandomColor()
         {

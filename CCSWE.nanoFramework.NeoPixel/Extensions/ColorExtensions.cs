@@ -10,7 +10,7 @@ namespace CCSWE.nanoFramework.NeoPixel
     public static class ColorExtensions
     {
         /// <summary>
-        /// Converts a <see cref="Color"/> to a <see cref="byte[]"/> in the given <see cref="ColorOrder"/>.
+        /// Converts a <see cref="Color"/> to a <see cref="T:byte[]"/> in the given <see cref="ColorOrder"/>.
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static byte[] ToBytes(this Color color, ColorOrder order)
