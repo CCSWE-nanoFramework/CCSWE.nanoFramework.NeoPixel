@@ -20,7 +20,14 @@
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
     <Compile Include="BenchmarkBase.cs" />
+    <Compile Include="ColorConverterBenchmarks.cs" />
     <Compile Include="MathBenchmarks.cs" />
+    <Compile Include="MathBenchmarks\CeilingBenchmarks.cs" />
+    <Compile Include="MathBenchmarks\FloorBenchmarks.cs" />
+    <Compile Include="MathBenchmarks\MaxBenchmarks.cs" />
+    <Compile Include="MathBenchmarks\MinBenchmarks.cs" />
+    <Compile Include="MathBenchmarks\AbsBenchmarks.cs" />
+    <Compile Include="MathBenchmarks\MathBenchmarksBase.cs" />
     <Compile Include="TestData.cs" />
     <Compile Include="Reference\Ws28xxNeoPixelStripBenchmarks.cs" />
     <Compile Include="NeoPixelStripBenchmarkBase.cs" />

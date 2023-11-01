@@ -21,11 +21,17 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
+    <Compile Include="Brightness\Double\ColorConverter.cs" />
+    <Compile Include="Brightness\Float\ColorConverter.cs" />
+    <Compile Include="Brightness\Float\HsbColor.cs" />
+    <Compile Include="Brightness\Float\HslColor.cs" />
     <Compile Include="Drivers\NeoPixelDriver.cs" />
     <Compile Include="Drivers\Ws2812C.cs" />
     <Compile Include="Drivers\Ws2812B.cs" />
     <Compile Include="ColorOrder.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
+    <Compile Include="Brightness\Double\HsbColor.cs" />
+    <Compile Include="Brightness\Double\HslColor.cs" />
     <Compile Include="Math.cs" />
     <Compile Include="NeoPixelPulse.cs" />
     <Compile Include="NeoPixelStrip.cs" />
@@ -44,6 +50,9 @@
     </Reference>
     <Reference Include="nanoFramework.Runtime.Events">
       <HintPath>..\packages\nanoFramework.Runtime.Events.1.11.6\lib\nanoFramework.Runtime.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Math">
+      <HintPath>..\packages\nanoFramework.System.Math.1.5.29\lib\System.Math.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
