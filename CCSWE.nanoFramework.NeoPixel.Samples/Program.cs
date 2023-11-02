@@ -6,8 +6,6 @@ namespace CCSWE.nanoFramework.NeoPixel.Samples
 {
     public class Program
     {
-
-
         public static void Main()
         {
             // Configure the number of LEDs
@@ -36,7 +34,10 @@ namespace CCSWE.nanoFramework.NeoPixel.Samples
 
             while (true)
             {
-                //ColorFade(strip);
+                FadeBrightness(strip, Color.White);
+                FadeBrightness(strip, Color.Red);
+                FadeBrightness(strip, Color.Green);
+                FadeBrightness(strip, Color.Blue);
 
                 ColorWipe(strip, Color.White);
                 ColorWipe(strip, Color.Red);
@@ -54,54 +55,34 @@ namespace CCSWE.nanoFramework.NeoPixel.Samples
             }
         }
 
-        private static void ColorFade(NeoPixelStrip strip)
+        private static void FadeBrightness(NeoPixelStrip strip, Color color, short duration = 250)
         {
-            // White
-            for (byte iteration = 0; iteration < 255; iteration++)
-            {
-                var color = Color.FromArgb(iteration, iteration, iteration);
-                for (var led = 0; led < strip.Count; led++)
-                {
-                    strip.SetLed(led, color);
-                }
+            var steps = 20;
+            var brightness = 0.0;
+            var brightnessStep = 1.0 / steps;
+            var stepDuration = (duration / steps) / 2;
 
+            strip.Clear();
+            strip.Update();
+
+            for (var i = 0; i < steps; i++)
+            {
+                brightness += brightnessStep;
+
+                strip.Fill(color, brightness);
                 strip.Update();
+
+                Thread.Sleep(stepDuration);
             }
 
-            // Red
-            for (byte iteration = 0; iteration < 255; iteration++)
+            for (var i = 0; i < steps; i++)
             {
-                var color = Color.FromArgb(iteration, 0, 0);
-                for (var led = 0; led < strip.Count; led++)
-                {
-                    strip.SetLed(led, color);
-                }
+                brightness -= brightnessStep;
 
+                strip.Fill(color, brightness);
                 strip.Update();
-            }
 
-            // Green
-            for (byte iteration = 0; iteration < 255; iteration++)
-            {
-                var color = Color.FromArgb(0, iteration, 0);
-                for (var led = 0; led < strip.Count; led++)
-                {
-                    strip.SetLed(led, color);
-                }
-
-                strip.Update();
-            }
-
-            // Blue
-            for (byte iteration = 0; iteration < 255; iteration++)
-            {
-                var color = Color.FromArgb(0, 0, iteration);
-                for (var led = 0; led < strip.Count; led++)
-                {
-                    strip.SetLed(led, color);
-                }
-
-                strip.Update();
+                Thread.Sleep(stepDuration);
             }
         }
 
