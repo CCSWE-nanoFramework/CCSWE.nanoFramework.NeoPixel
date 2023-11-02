@@ -10,7 +10,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Samples
 
         public static void Main()
         {
-            // Configure the number of leds
+            // Configure the number of LEDs
             const ushort count = 47;
 
             // Adjust the pin number

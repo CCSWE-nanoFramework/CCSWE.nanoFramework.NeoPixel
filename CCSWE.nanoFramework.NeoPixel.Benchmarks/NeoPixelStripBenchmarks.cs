@@ -7,6 +7,8 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
     [IterationCount(IterationCount)]
     public class NeoPixelStripBenchmarks : NeoPixelStripBenchmarkBase
     {
+        private const double Brightness = 0.1;
+
         private NeoPixelStrip _sut;
 
         [Setup]
@@ -23,11 +25,42 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
         }
 
         [Benchmark]
+        public void Fill_Brightness()
+        {
+            _sut.Fill(TestData.Color, Brightness);
+            _sut.Update();
+        }
+
+        [Benchmark]
         public void SetPixel()
         {
             for (var i = 0; i < _sut.Count; i++)
             {
                 _sut.SetLed(i, TestData.Color);
+            }
+
+            _sut.Update();
+        }
+
+        [Benchmark]
+        public void SetPixel_Brightness()
+        {
+            for (var i = 0; i < _sut.Count; i++)
+            {
+                _sut.SetLed(i, TestData.Color, Brightness);
+            }
+
+            _sut.Update();
+        }
+
+        [Benchmark]
+        public void SetPixel_Brightness_Scaled()
+        {
+            var color = ColorConverter.ScaleBrightness(TestData.Color, Brightness);
+
+            for (var i = 0; i < _sut.Count; i++)
+            {
+                _sut.SetLed(i, color);
             }
 
             _sut.Update();

@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
+﻿namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
 {
     public abstract class NeoPixelStripBenchmarkBase
     {
