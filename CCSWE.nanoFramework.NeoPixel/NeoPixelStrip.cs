@@ -5,6 +5,9 @@ using CCSWE.nanoFramework.NeoPixel.Drivers;
 
 namespace CCSWE.nanoFramework.NeoPixel
 {
+    /// <summary>
+    /// Represents a strip of LEDs.
+    /// </summary>
     public class NeoPixelStrip: IDisposable
     {
         private const byte BitsPerLed = 24;
@@ -18,6 +21,12 @@ namespace CCSWE.nanoFramework.NeoPixel
         private readonly NeoPixelPulse _onePulse;
         private readonly NeoPixelPulse _zeroPulse;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NeoPixelStrip"/> class.
+        /// </summary>
+        /// <param name="pin">The GPIO pin used for communication with the LED driver.</param>
+        /// <param name="count">The number of LEDs in the strip.</param>
+        /// <param name="driver">The LED driver.</param>
         public NeoPixelStrip(byte pin, ushort count, NeoPixelDriver driver)
         {
             Count = count;
@@ -48,15 +57,27 @@ namespace CCSWE.nanoFramework.NeoPixel
             Clear();
         }
 
+        /// <summary>
+        /// Gets the number of LEDs in the strip.
+        /// </summary>
         public ushort Count { get; }
 
+        /// <summary>
+        /// Close and release the RMT channel.
+        /// </summary>
         ~NeoPixelStrip() => Dispose(false);
 
+        /// <summary>
+        /// Resets all LEDs to <see cref="Color.Black"/>.
+        /// </summary>
         public void Clear()
         {
             Fill(Color.Black);
         }
 
+        /// <summary>
+        /// Close and release the RMT channel.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)
@@ -91,6 +112,10 @@ namespace CCSWE.nanoFramework.NeoPixel
             _disposed = true;
         }
 
+        /// <summary>
+        /// Fill the strip with a <see cref="Color"/>.
+        /// </summary>
+        /// <param name="color">The <see cref="Color"/>.</param>
         public void Fill(Color color)
         {
             var colorBytes = color.ToBytes(_colorOrder);
@@ -129,11 +154,26 @@ namespace CCSWE.nanoFramework.NeoPixel
             }
         }
 
-        private int GetStartIndex(int index)
+        /// <summary>
+        /// Fill the strip with a <see cref="Color"/>.
+        /// </summary>
+        /// <param name="color">The <see cref="Color"/>.</param>
+        /// <param name="brightness">The brightness value between 0.0 and 1.0.</param>
+        public void Fill(Color color, double brightness)
+        {
+            Fill(ColorConverter.ScaleBrightness(color, brightness));
+        }
+
+        private static int GetStartIndex(int index)
         {
             return index * BitsPerLed * 4;
         }
 
+        /// <summary>
+        /// Sets the <see cref="Color"/> for a LED. 
+        /// </summary>
+        /// <param name="index">The index of the LED.</param>
+        /// <param name="color">The <see cref="Color"/>.</param>
         public void SetLed(int index, Color color)
         {
             var colorBytes = color.ToBytes(_colorOrder);
@@ -167,29 +207,23 @@ namespace CCSWE.nanoFramework.NeoPixel
             }
         }
 
-        /*
-        private void SerializeColor(byte b, TransmitterChannel transmitter)
+        /// <summary>
+        /// Sets the <see cref="Color"/> for a LED. 
+        /// </summary>
+        /// <param name="index">The index of the LED.</param>
+        /// <param name="color">The <see cref="Color"/>.</param>
+        /// <param name="brightness">The brightness value between 0.0 and 1.0.</param>
+        /// <remarks>If you are using the same <see cref="Color"/> for multiple LEDs it
+        /// is more efficient to use <see cref="ColorConverter.ScaleBrightness"/> to
+        /// adjust the brightness and pass that to <see cref="SetLed(int,Color)"/></remarks>
+        public void SetLed(int index, Color color, double brightness)
         {
-            for (int index = 0; index < 8; ++index)
-            {
-                transmitter.AddCommand(((int)b & 128) != 0 ? this.OnePulse : this.ZeroPulse);
-                b <<= 1;
-            }
-        }
-        */
-
-        /*
-        public void SetLeds(int start, int length, byte[] color)
-        {
-
+            SetLed(index, ColorConverter.ScaleBrightness(color, brightness));
         }
 
-        public void SetLeds(int start, int length, Color color)
-        {
-            SetLeds(start, length, color.ToBytes(_colorOrder));
-        }
-        */
-
+        /// <summary>
+        /// Send the data to the LED strip.
+        /// </summary>
         public void Update()
         {
             _transmitterChannel.SendData(_data, false);

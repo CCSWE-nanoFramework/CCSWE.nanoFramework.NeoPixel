@@ -61,6 +61,30 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
         }
 
         [TestMethod]
+        public void Clamp_returns_correct_value_for_double()
+        {
+            var expect = 1d;
+            var max = expect * 1;
+            var min = expect * -1;
+            var value = 10d;
+
+            Assert.AreEqual(expect, ManagedMath.Clamp(value, min, max));
+            Assert.AreEqual(expect, System.Math.Clamp(value, min, max));
+        }
+
+        [TestMethod]
+        public void Clamp_returns_correct_value_for_float()
+        {
+            var expect = 1f;
+            var max = expect * 1;
+            var min = expect * -1;
+            var value = 10f;
+
+            Assert.AreEqual(expect, ManagedMath.Clamp(value, min, max));
+            Assert.AreEqual(expect, System.Math.Clamp(value, min, max));
+        }
+
+        [TestMethod]
         public void Floor_returns_correct_value_for_negative_double()
         {
             var expect = -4d;

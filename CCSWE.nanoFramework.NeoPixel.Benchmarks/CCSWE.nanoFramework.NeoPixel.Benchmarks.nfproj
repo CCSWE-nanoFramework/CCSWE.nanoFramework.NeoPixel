@@ -21,7 +21,7 @@
   <ItemGroup>
     <Compile Include="BenchmarkBase.cs" />
     <Compile Include="ColorConverterBenchmarks.cs" />
-    <Compile Include="MathBenchmarks.cs" />
+    <Compile Include="MathBenchmarks\ClampBenchmarks.cs" />
     <Compile Include="MathBenchmarks\CeilingBenchmarks.cs" />
     <Compile Include="MathBenchmarks\FloorBenchmarks.cs" />
     <Compile Include="MathBenchmarks\MaxBenchmarks.cs" />

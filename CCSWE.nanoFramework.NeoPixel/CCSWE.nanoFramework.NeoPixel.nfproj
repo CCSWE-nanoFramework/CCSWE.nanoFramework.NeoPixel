@@ -21,17 +21,14 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="Brightness\Double\ColorConverter.cs" />
-    <Compile Include="Brightness\Float\ColorConverter.cs" />
-    <Compile Include="Brightness\Float\HsbColor.cs" />
-    <Compile Include="Brightness\Float\HslColor.cs" />
+    <Compile Include="ColorConverter.cs" />
     <Compile Include="Drivers\NeoPixelDriver.cs" />
     <Compile Include="Drivers\Ws2812C.cs" />
     <Compile Include="Drivers\Ws2812B.cs" />
     <Compile Include="ColorOrder.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
-    <Compile Include="Brightness\Double\HsbColor.cs" />
-    <Compile Include="Brightness\Double\HslColor.cs" />
+    <Compile Include="HsbColor.cs" />
+    <Compile Include="HslColor.cs" />
     <Compile Include="Math.cs" />
     <Compile Include="NeoPixelPulse.cs" />
     <Compile Include="NeoPixelStrip.cs" />

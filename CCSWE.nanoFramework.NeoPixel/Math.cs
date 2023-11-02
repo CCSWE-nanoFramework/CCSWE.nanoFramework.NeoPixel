@@ -29,6 +29,12 @@ namespace CCSWE.nanoFramework.NeoPixel
             return System.Math.Ceiling(d);
         }
 
+        /// <inheritdoc cref="System.Math.Clamp(double,double,double)"/>
+        public static double Clamp(double value, double min, double max) => Max(min, Min(max, value));
+
+        /// <inheritdoc cref="System.Math.Clamp(float,float,float)"/>
+        public static float Clamp(float value, float min, float max) => Max(min, Min(max, value));
+
         /// <inheritdoc cref="System.Math.Floor(double)"/>
         public static double Floor(double d)
         {
@@ -79,6 +85,20 @@ namespace CCSWE.nanoFramework.NeoPixel
 
         /// <inheritdoc cref="System.Math.Ceiling(double)"/>
         public static double Ceiling(double d) => Floor(d) + 1;
+
+        /// <inheritdoc cref="System.Math.Clamp(double,double,double)"/>
+        public static double Clamp(double value, double min, double max) => Max(min, Min(max, value));
+
+        /// <inheritdoc cref="System.Math.Clamp(float,float,float)"/>
+        public static float Clamp(float value, float min, float max) => Max(min, Min(max, value));
+
+        /*
+        /// <inheritdoc cref="System.Math.Clamp(long,long,long)"/>
+        public static long Clamp(long value, long min, long max) => Max(min, Min(max, value));
+
+        /// <inheritdoc cref="System.Math.Clamp(ulong,ulong,ulong)"/>
+        public static ulong Clamp(ulong value, ulong min, ulong max) => Max(min, Min(max, value));
+        */
 
         /// <inheritdoc cref="System.Math.Floor(double)"/>
         public static double Floor(double d) => d % 1 == 0 ? d : (int)(d - (d < 0 ? 1 : 0));
