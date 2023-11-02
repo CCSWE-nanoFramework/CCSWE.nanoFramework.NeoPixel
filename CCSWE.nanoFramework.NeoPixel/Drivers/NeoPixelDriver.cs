@@ -1,4 +1,6 @@
-﻿namespace CCSWE.nanoFramework.NeoPixel.Drivers
+﻿using CCSWE.nanoFramework.NeoPixel.Rmt;
+
+namespace CCSWE.nanoFramework.NeoPixel.Drivers
 {
     /// <summary>
     /// Provides the commands required to control the NeoPixel.

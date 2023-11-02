@@ -1,4 +1,5 @@
-﻿using nanoFramework.TestFramework;
+﻿using CCSWE.nanoFramework.NeoPixel.Rmt;
+using nanoFramework.TestFramework;
 
 namespace CCSWE.nanoFramework.NeoPixel.UnitTests
 {

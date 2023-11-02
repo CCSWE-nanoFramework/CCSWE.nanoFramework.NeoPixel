@@ -1,6 +1,6 @@
 ﻿using nanoFramework.Hardware.Esp32.Rmt;
 
-namespace CCSWE.nanoFramework.NeoPixel
+namespace CCSWE.nanoFramework.NeoPixel.Rmt
 {
     /// <summary>
     /// Specifies the duration and level for an RMT pulse similar to <see cref="RmtCommand"/>
