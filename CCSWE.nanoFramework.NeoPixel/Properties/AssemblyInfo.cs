@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CSharp.TestApplication")]
+[assembly: AssemblyTitle("CCSWE.nanoFramework.Math")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CSharp.TestApplication")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCompany("CCSWE")]
+[assembly: AssemblyProduct("CCSWE.nanoFramework.Math")]
+[assembly: AssemblyCopyright("Copyright © Cory Charlton 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
