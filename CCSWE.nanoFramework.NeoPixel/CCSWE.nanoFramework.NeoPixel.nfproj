@@ -30,7 +30,7 @@
     <Compile Include="HsbColor.cs" />
     <Compile Include="HslColor.cs" />
     <Compile Include="Math.cs" />
-    <Compile Include="NeoPixelPulse.cs" />
+    <Compile Include="Rmt\NeoPixelPulse.cs" />
     <Compile Include="NeoPixelStrip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Internal\SampleNeoPixelStrip.cs" />

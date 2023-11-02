@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using CCSWE.nanoFramework.NeoPixel.Drivers;
+using CCSWE.nanoFramework.NeoPixel.Rmt;
 
 namespace CCSWE.nanoFramework.NeoPixel
 {
