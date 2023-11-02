@@ -1,3 +1,5 @@
+[![Build](https://github.com/CoryCharlton/CCSWE.nanoFramework.NeoPixel/actions/workflows/build-solution.yml/badge.svg)](https://github.com/CoryCharlton/CCSWE.nanoFramework.NeoPixel/actions/workflows/build-solution.yml) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![NuGet](https://img.shields.io/nuget/dt/CCSWE.nanoFramework.NeoPixel.svg?label=NuGet&style=flat&logo=nuget)](https://www.nuget.org/packages/CCSWE.nanoFramework.NeoPixel/) 
+
 # CCSWE.nanoFramework.NeoPixel
 
 A fast ESP32 RMT library for controlling LED chipsets (NeoPixel, WS2812B, etc.)
