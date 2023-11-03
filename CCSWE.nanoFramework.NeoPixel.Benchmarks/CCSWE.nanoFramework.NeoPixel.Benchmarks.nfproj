@@ -16,18 +16,13 @@
     <AssemblyName>CCSWE.nanoFramework.NeoPixel.Benchmarks</AssemblyName>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
     <Compile Include="BenchmarkBase.cs" />
     <Compile Include="ColorConverterBenchmarks.cs" />
-    <Compile Include="MathBenchmarks\ClampBenchmarks.cs" />
-    <Compile Include="MathBenchmarks\CeilingBenchmarks.cs" />
-    <Compile Include="MathBenchmarks\FloorBenchmarks.cs" />
-    <Compile Include="MathBenchmarks\MaxBenchmarks.cs" />
-    <Compile Include="MathBenchmarks\MinBenchmarks.cs" />
-    <Compile Include="MathBenchmarks\AbsBenchmarks.cs" />
-    <Compile Include="MathBenchmarks\MathBenchmarksBase.cs" />
+    <Compile Include="Doubles.cs" />
     <Compile Include="TestData.cs" />
     <Compile Include="Reference\Ws28xxNeoPixelStripBenchmarks.cs" />
     <Compile Include="NeoPixelStripBenchmarkBase.cs" />
@@ -70,9 +65,6 @@
     </Reference>
     <Reference Include="System.Diagnostics.Stopwatch">
       <HintPath>..\packages\nanoFramework.System.Diagnostics.Stopwatch.1.2.325\lib\System.Diagnostics.Stopwatch.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Math">
-      <HintPath>..\packages\nanoFramework.System.Math.1.5.29\lib\System.Math.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,12 @@
   "version": 1,
   "dependencies": {
     ".NETnanoFramework,Version=v1.0": {
+      "CCSWE.nanoFramework.Math": {
+        "type": "Direct",
+        "requested": "[0.1.0, 0.1.0]",
+        "resolved": "0.1.0",
+        "contentHash": "duHCqrIKGHRuXQQ0/j2cTxyroY6356nC1ow+Rulhu3TakCaca1Z8i6pGI7RfNe+sRvkhH/tWtaHnrxPC1la0YA=="
+      },
       "nanoFramework.CoreLibrary": {
         "type": "Direct",
         "requested": "[1.14.2, 1.14.2]",

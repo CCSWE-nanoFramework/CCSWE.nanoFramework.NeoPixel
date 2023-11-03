@@ -29,7 +29,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ColorExtensionsTests.cs" />
-    <Compile Include="ManagedMathTests.cs" />
     <Compile Include="NeoPixelPulseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -45,9 +44,6 @@
     </Reference>
     <Reference Include="nanoFramework.UnitTestLauncher">
       <HintPath>..\packages\nanoFramework.TestFramework.2.1.85\lib\nanoFramework.UnitTestLauncher.exe</HintPath>
-    </Reference>
-    <Reference Include="System.Math">
-      <HintPath>..\packages\nanoFramework.System.Math.1.5.29\lib\System.Math.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
