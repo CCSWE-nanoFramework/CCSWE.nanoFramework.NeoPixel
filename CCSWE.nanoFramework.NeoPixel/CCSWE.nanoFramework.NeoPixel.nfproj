@@ -29,13 +29,15 @@
     <Compile Include="Extensions\ColorExtensions.cs" />
     <Compile Include="HsbColor.cs" />
     <Compile Include="HslColor.cs" />
-    <Compile Include="Math.cs" />
     <Compile Include="Rmt\NeoPixelPulse.cs" />
     <Compile Include="NeoPixelStrip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Internal\SampleNeoPixelStrip.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="CCSWE.nanoFramework.Math">
+      <HintPath>..\packages\CCSWE.nanoFramework.Math.0.1.0\lib\CCSWE.nanoFramework.Math.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\packages\nanoFramework.CoreLibrary.1.14.2\lib\mscorlib.dll</HintPath>
     </Reference>

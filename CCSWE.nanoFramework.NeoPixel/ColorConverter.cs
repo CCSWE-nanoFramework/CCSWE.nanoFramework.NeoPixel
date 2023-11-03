@@ -50,7 +50,7 @@ namespace CCSWE.nanoFramework.NeoPixel
 
             foreach (var value in values)
             {
-                max = Math.Max(max, value);
+                max = FastMath.Max(max, value);
             }
 
             return max;
@@ -70,7 +70,7 @@ namespace CCSWE.nanoFramework.NeoPixel
 
             foreach (var value in values)
             {
-                min = Math.Min(min, value);
+                min = FastMath.Min(min, value);
             }
 
             return min;
@@ -83,7 +83,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <param name="brightness">The brightness value between 0.0 and 1.0.</param>
         public static Color ScaleBrightness(Color color, double brightness)
         {
-            var brightnessAdjusted = Math.Clamp(brightness, 0.0, 1.0);
+            var brightnessAdjusted = FastMath.Clamp(brightness, 0.0, 1.0);
 
             // TODO: Investigate why I elected to convert to HSL and then to HSB
             var hslColor = ToHslColor(color);
@@ -100,7 +100,7 @@ namespace CCSWE.nanoFramework.NeoPixel
             var saturation = (double)hsb.Saturation / 100;
             var brightness = (double)hsb.Brightness / 100;
 
-            if (Math.Abs(saturation - 0) < double.Epsilon)
+            if (FastMath.Abs(saturation - 0) < double.Epsilon)
             {
                 red = brightness;
                 green = brightness;
@@ -175,7 +175,7 @@ namespace CCSWE.nanoFramework.NeoPixel
             var saturation = hsl.Saturation / 100.0;
             var light = hsl.Light / 100.0;
 
-            if (Math.Abs(saturation - 0.0) < double.Epsilon)
+            if (FastMath.Abs(saturation - 0.0) < double.Epsilon)
             {
                 red = light;
                 green = light;
@@ -229,7 +229,7 @@ namespace CCSWE.nanoFramework.NeoPixel
             double saturation;
             var brightness = max * 100;
 
-            if (Math.Abs(max - 0) < double.Epsilon || Math.Abs(delta - 0) < double.Epsilon)
+            if (FastMath.Abs(max - 0) < double.Epsilon || FastMath.Abs(delta - 0) < double.Epsilon)
             {
                 hue = 0;
                 saturation = 0;
@@ -241,7 +241,7 @@ namespace CCSWE.nanoFramework.NeoPixel
                 // tests with the help of Double.Epsilon that will provide 
                 // a more accurate equality evaluation.
 
-                if (Math.Abs(min - 0) < double.Epsilon)
+                if (FastMath.Abs(min - 0) < double.Epsilon)
                 {
                     saturation = 100;
                 }
@@ -250,15 +250,15 @@ namespace CCSWE.nanoFramework.NeoPixel
                     saturation = delta / max * 100;
                 }
 
-                if (Math.Abs(r - max) < double.Epsilon)
+                if (FastMath.Abs(r - max) < double.Epsilon)
                 {
                     hue = (g - b) / delta;
                 }
-                else if (Math.Abs(g - max) < double.Epsilon)
+                else if (FastMath.Abs(g - max) < double.Epsilon)
                 {
                     hue = 2 + (b - r) / delta;
                 }
-                else if (Math.Abs(b - max) < double.Epsilon)
+                else if (FastMath.Abs(b - max) < double.Epsilon)
                 {
                     hue = 4 + (r - g) / delta;
                 }
@@ -287,7 +287,7 @@ namespace CCSWE.nanoFramework.NeoPixel
             double saturation;
             var light = (max + min) / 2;
 
-            if (Math.Abs(delta - 0) < double.Epsilon) //This is a gray, no chroma...
+            if (FastMath.Abs(delta - 0) < double.Epsilon) //This is a gray, no chroma...
             {
                 hue = 0; //HSL results = 0 ÷ 1
                 saturation = 0;
@@ -309,15 +309,15 @@ namespace CCSWE.nanoFramework.NeoPixel
                 var deltaG = ((max - g) / 6.0 + delta / 2.0) / delta;
                 var deltaB = ((max - b) / 6.0 + delta / 2.0) / delta;
 
-                if (Math.Abs(r - max) < double.Epsilon)
+                if (FastMath.Abs(r - max) < double.Epsilon)
                 {
                     hue = deltaB - deltaG;
                 }
-                else if (Math.Abs(g - max) < double.Epsilon)
+                else if (FastMath.Abs(g - max) < double.Epsilon)
                 {
                     hue = 1.0 / 3.0 + deltaR - deltaB;
                 }
-                else if (Math.Abs(b - max) < double.Epsilon)
+                else if (FastMath.Abs(b - max) < double.Epsilon)
                 {
                     hue = 2.0 / 3.0 + deltaG - deltaR;
                 }

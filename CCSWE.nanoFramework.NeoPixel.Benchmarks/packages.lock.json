@@ -62,12 +62,6 @@
         "resolved": "1.2.325",
         "contentHash": "VIv7e9pPukInMnHw8lRQGgBWVBccci9htWDM5cQNgYTWgQGkNNJxcXb3YDP7FXhUosRSgI8E7iFRavRczr4SgA=="
       },
-      "nanoFramework.System.Math": {
-        "type": "Direct",
-        "requested": "[1.5.29, 1.5.29]",
-        "resolved": "1.5.29",
-        "contentHash": "PyufZzrtDA7HKCbrbOEbqDhaWK5vflJmAi7RJ+a4cPLMmO9cSWc0dUbylMg6Wxg7Ggu1VmcPqfCIZPFHbx5/2A=="
-      },
       "nanoFramework.System.Text": {
         "type": "Direct",
         "requested": "[1.2.37, 1.2.37]",

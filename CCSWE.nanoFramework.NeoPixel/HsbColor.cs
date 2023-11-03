@@ -46,9 +46,9 @@ namespace CCSWE.nanoFramework.NeoPixel
                 return false;
             }
 
-            return Math.Abs(Hue - color.Hue) < double.Epsilon &&
-                   Math.Abs(Saturation - color.Saturation) < double.Epsilon &&
-                   Math.Abs(Brightness - color.Brightness) < double.Epsilon &&
+            return FastMath.Abs(Hue - color.Hue) < double.Epsilon &&
+                   FastMath.Abs(Saturation - color.Saturation) < double.Epsilon &&
+                   FastMath.Abs(Brightness - color.Brightness) < double.Epsilon &&
                    Alpha == color.Alpha;
         }
 

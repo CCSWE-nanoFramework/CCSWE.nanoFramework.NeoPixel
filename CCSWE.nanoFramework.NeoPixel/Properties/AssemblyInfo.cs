@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CCSWE.nanoFramework.Math")]
+[assembly: AssemblyTitle("CCSWE.nanoFramework.NeoPixel")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CCSWE")]
-[assembly: AssemblyProduct("CCSWE.nanoFramework.Math")]
+[assembly: AssemblyProduct("CCSWE.nanoFramework.NeoPixel")]
 [assembly: AssemblyCopyright("Copyright © Cory Charlton 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
