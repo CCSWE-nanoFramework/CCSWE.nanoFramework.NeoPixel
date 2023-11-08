@@ -35,8 +35,9 @@
     <Reference Include="Iot.Device.Ws28xx.Esp32">
       <HintPath>..\packages\nanoFramework.Iot.Device.Ws28xx.Esp32.1.2.329\lib\Iot.Device.Ws28xx.Esp32.dll</HintPath>
     </Reference>
-    <Reference Include="mscorlib">
-      <HintPath>..\packages\nanoFramework.CoreLibrary.1.14.2\lib\mscorlib.dll</HintPath>
+    <Reference Include="mscorlib, Version=1.14.20.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.CoreLibrary.1.14.20\lib\mscorlib.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="nanoFramework.Benchmark">
       <HintPath>..\packages\nanoFramework.Benchmark.1.0.56\lib\nanoFramework.Benchmark.dll</HintPath>
