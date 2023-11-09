@@ -35,8 +35,8 @@
     <Reference Include="Iot.Device.Ws28xx.Esp32">
       <HintPath>..\packages\nanoFramework.Iot.Device.Ws28xx.Esp32.1.2.329\lib\Iot.Device.Ws28xx.Esp32.dll</HintPath>
     </Reference>
-    <Reference Include="mscorlib, Version=1.14.20.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>..\packages\nanoFramework.CoreLibrary.1.14.20\lib\mscorlib.dll</HintPath>
+    <Reference Include="mscorlib, Version=1.14.3.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.CoreLibrary.1.14.2\lib\mscorlib.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nanoFramework.Benchmark">
@@ -63,8 +63,9 @@
     <Reference Include="nanoFramework.System.Text">
       <HintPath>..\packages\nanoFramework.System.Text.1.2.37\lib\nanoFramework.System.Text.dll</HintPath>
     </Reference>
-    <Reference Include="System.Diagnostics.Stopwatch">
-      <HintPath>..\packages\nanoFramework.System.Diagnostics.Stopwatch.1.2.325\lib\System.Diagnostics.Stopwatch.dll</HintPath>
+    <Reference Include="System.Diagnostics.Stopwatch, Version=1.2.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.System.Diagnostics.Stopwatch.1.2.415\lib\System.Diagnostics.Stopwatch.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
