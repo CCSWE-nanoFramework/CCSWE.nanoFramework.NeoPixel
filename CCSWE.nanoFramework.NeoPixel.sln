@@ -23,14 +23,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{9354FC
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build-solution.yml = .github\workflows\build-solution.yml
 		.github\config.yml = .github\config.yml
+		.github\workflows\pull-request-checks.yml = .github\workflows\pull-request-checks.yml
 		.github\workflows\update-dependencies.yml = .github\workflows\update-dependencies.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{5E3996DD-1F69-4AD6-9BC5-6D44CB3FA649}"
 	ProjectSection(SolutionItems) = preProject
 		CCSWE.nanoFramework.NeoPixel.nuspec = CCSWE.nanoFramework.NeoPixel.nuspec
-		Directory.Build.props = Directory.Build.props
-		nuget.config = nuget.config
 		version.json = version.json
 	EndProjectSection
 EndProject
