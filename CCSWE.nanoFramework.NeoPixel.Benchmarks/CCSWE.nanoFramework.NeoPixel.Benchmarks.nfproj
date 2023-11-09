@@ -35,33 +35,32 @@
     <Reference Include="Iot.Device.Ws28xx.Esp32">
       <HintPath>..\packages\nanoFramework.Iot.Device.Ws28xx.Esp32.1.2.329\lib\Iot.Device.Ws28xx.Esp32.dll</HintPath>
     </Reference>
-    <Reference Include="mscorlib, Version=1.14.3.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>..\packages\nanoFramework.CoreLibrary.1.14.2\lib\mscorlib.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="mscorlib">
+      <HintPath>..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Benchmark">
-      <HintPath>..\packages\nanoFramework.Benchmark.1.0.56\lib\nanoFramework.Benchmark.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Benchmark.1.0.60\lib\nanoFramework.Benchmark.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Graphics.Core">
-      <HintPath>..\packages\nanoFramework.Graphics.Core.1.1.37\lib\nanoFramework.Graphics.Core.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Graphics.Core.1.2.4\lib\nanoFramework.Graphics.Core.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Hardware.Esp32.Rmt">
-      <HintPath>..\packages\nanoFramework.Hardware.Esp32.Rmt.2.0.1\lib\nanoFramework.Hardware.Esp32.Rmt.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Hardware.Esp32.Rmt.2.0.7\lib\nanoFramework.Hardware.Esp32.Rmt.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Logging">
       <HintPath>..\packages\nanoFramework.Logging.1.1.63\lib\nanoFramework.Logging.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Runtime.Events">
-      <HintPath>..\packages\nanoFramework.Runtime.Events.1.11.6\lib\nanoFramework.Runtime.Events.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Runtime.Events.1.11.15\lib\nanoFramework.Runtime.Events.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Runtime.Native">
-      <HintPath>..\packages\nanoFramework.Runtime.Native.1.6.6\lib\nanoFramework.Runtime.Native.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Runtime.Native.1.6.12\lib\nanoFramework.Runtime.Native.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.System.Collections">
-      <HintPath>..\packages\nanoFramework.System.Collections.1.5.18\lib\nanoFramework.System.Collections.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.System.Collections.1.5.31\lib\nanoFramework.System.Collections.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.System.Text">
-      <HintPath>..\packages\nanoFramework.System.Text.1.2.37\lib\nanoFramework.System.Text.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.System.Text.1.2.54\lib\nanoFramework.System.Text.dll</HintPath>
     </Reference>
     <Reference Include="System.Diagnostics.Stopwatch, Version=1.2.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
       <HintPath>..\packages\nanoFramework.System.Diagnostics.Stopwatch.1.2.415\lib\System.Diagnostics.Stopwatch.dll</HintPath>
