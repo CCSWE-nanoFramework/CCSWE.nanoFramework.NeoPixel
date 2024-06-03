@@ -9,7 +9,10 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
         [Benchmark]
         public void ScaleBrightness()
         {
-            var result = ColorConverter.ScaleBrightness(TestData.Color, 0.5d);
+            RunIterations(100, () =>
+            {
+                var result = ColorConverter.ScaleBrightness(TestData.Color, 0.5f);
+            });
         }
     }
 }

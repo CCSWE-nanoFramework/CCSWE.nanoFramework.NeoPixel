@@ -1,5 +1,4 @@
-﻿using CCSWE.nanoFramework.NeoPixel.Internal;
-using nanoFramework.Benchmark;
+﻿using nanoFramework.Benchmark;
 using nanoFramework.Benchmark.Attributes;
 
 namespace CCSWE.nanoFramework.NeoPixel.Benchmarks.Reference

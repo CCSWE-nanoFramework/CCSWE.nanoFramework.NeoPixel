@@ -7,7 +7,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
     [IterationCount(IterationCount)]
     public class NeoPixelStripBenchmarks : NeoPixelStripBenchmarkBase
     {
-        private const double Brightness = 0.1;
+        private const float Brightness = 0.1f;
 
         private NeoPixelStrip _sut;
 

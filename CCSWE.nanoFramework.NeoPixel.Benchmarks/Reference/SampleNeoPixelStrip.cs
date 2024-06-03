@@ -1,7 +1,7 @@
-﻿using nanoFramework.Hardware.Esp32.Rmt;
-using System.Drawing;
+﻿using System.Drawing;
+using nanoFramework.Hardware.Esp32.Rmt;
 
-namespace CCSWE.nanoFramework.NeoPixel.Internal
+namespace CCSWE.nanoFramework.NeoPixel.Benchmarks.Reference
 {
     /// <summary>
     /// This is a reference implementation based on https://github.com/nanoframework/Samples/tree/main/samples/Hardware.Esp32.Rmt/NeoPixelStripLowMemory.

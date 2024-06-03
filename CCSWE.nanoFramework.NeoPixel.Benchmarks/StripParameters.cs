@@ -4,6 +4,6 @@
     {
         public const ColorOrder ColorOrder = NeoPixel.ColorOrder.GRB;
         public const ushort Count = 47;
-        public const byte Pin = 19;
+        public const byte Pin = 40;
     }
 }
