@@ -10,7 +10,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Drivers
         /// <summary>
         /// The frequency of the APB clock used for RMT timing.
         /// </summary>
-        /// <remarks>My understanding is that all but one ESP32 use an 80 MHz APB clock so we'll stick with that for now.</remarks>
+        /// <remarks>My understanding is that all but one ESP32 use an 80 MHz APB clock, so we'll stick with that for now.</remarks>
         protected const float ApbClockFrequency = 80_000_000.0f; // 80 MHz
 
         /// <summary>

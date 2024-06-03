@@ -1,6 +1,8 @@
 using System.Drawing;
 using System.Threading;
 using CCSWE.nanoFramework.NeoPixel.Drivers;
+// ReSharper disable FunctionNeverReturns
+// ReSharper disable RedundantArgumentDefaultValue
 
 namespace CCSWE.nanoFramework.NeoPixel.Samples
 {
@@ -11,7 +13,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Samples
             // Configure the number of LEDs
             const ushort count = 47;
 
-            // Adjust the pin number
+            // Adjust the pin
             const byte pin = 19;
 
             // Choose the correct driver and color order

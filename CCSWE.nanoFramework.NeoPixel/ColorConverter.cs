@@ -37,7 +37,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         }
 
         /// <summary>
-        /// Determines the maximum value of all of the numbers provided in the variable argument list.
+        /// Determines the maximum value of all the numbers provided in the variable argument list.
         /// </summary>
         private static double Max(params double[] values)
         {
@@ -50,14 +50,14 @@ namespace CCSWE.nanoFramework.NeoPixel
 
             foreach (var value in values)
             {
-                max = FastMath.Max(max, value);
+                max = Math.Max(max, value);
             }
 
             return max;
         }
 
         /// <summary>
-        /// Determines the minimum value of all of the numbers provided in the variable argument list.
+        /// Determines the minimum value of all the numbers provided in the variable argument list.
         /// </summary>
         private static double Min(params double[] values)
         {
@@ -70,7 +70,7 @@ namespace CCSWE.nanoFramework.NeoPixel
 
             foreach (var value in values)
             {
-                min = FastMath.Min(min, value);
+                min = Math.Min(min, value);
             }
 
             return min;
@@ -96,9 +96,9 @@ namespace CCSWE.nanoFramework.NeoPixel
         {
             double red = 0, green = 0, blue = 0;
 
-            double hue = hsb.Hue;
-            var saturation = (double)hsb.Saturation / 100;
-            var brightness = (double)hsb.Brightness / 100;
+            var hue = hsb.Hue;
+            var saturation = hsb.Saturation / 100.0;
+            var brightness = hsb.Brightness / 100.0;
 
             if (FastMath.Abs(saturation - 0) < double.Epsilon)
             {

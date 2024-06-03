@@ -5,7 +5,7 @@ namespace CCSWE.nanoFramework.NeoPixel
     // Based on: https://gist.github.com/UweKeim/fb7f829b852c209557bc49c51ba14c8b
 
     /// <summary>
-    /// Represents a HSL color space.
+    /// Represents an HSL color space.
     /// https://en.wikipedia.org/wiki/HSL_and_HSV
     /// </summary>
     internal readonly struct HslColor
@@ -60,6 +60,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <inheritdoc />
         public override int GetHashCode()
         {
+            // ReSharper disable once RedundantOverflowCheckingContext
             unchecked
             {
                 return Hue.GetHashCode() ^ Saturation.GetHashCode() ^ Light.GetHashCode() ^ Alpha.GetHashCode();
@@ -75,8 +76,8 @@ namespace CCSWE.nanoFramework.NeoPixel
         public override string ToString()
         {
             return Alpha < 255
-                ? $@"hsla({Hue}, {Saturation}%, {Light}%, {Alpha / 255f})"
-                : $@"hsl({Hue}, {Saturation}%, {Light}%)";
+                ? $"hsla({Hue}, {Saturation}%, {Light}%, {Alpha / 255f})"
+                : $"hsl({Hue}, {Saturation}%, {Light}%)";
         }
     }
 }

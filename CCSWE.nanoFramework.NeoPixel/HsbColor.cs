@@ -60,6 +60,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <inheritdoc />
         public override int GetHashCode()
         {
+            // ReSharper disable once RedundantOverflowCheckingContext
             unchecked
             {
                 return Hue.GetHashCode() ^ Saturation.GetHashCode() ^ Brightness.GetHashCode() ^ Alpha.GetHashCode();

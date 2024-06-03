@@ -14,6 +14,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
         [Setup]
         public override void Setup()
         {
+            // ReSharper disable once RedundantArgumentDefaultValue
             _sut = new NeoPixelStrip(StripParameters.Pin, StripParameters.Count, new Ws2812B(StripParameters.ColorOrder));
         }
 

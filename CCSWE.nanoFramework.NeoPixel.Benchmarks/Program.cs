@@ -1,3 +1,4 @@
+// ReSharper disable RedundantUsingDirective
 #if DEBUG
 using System;
 using System.Diagnostics;
