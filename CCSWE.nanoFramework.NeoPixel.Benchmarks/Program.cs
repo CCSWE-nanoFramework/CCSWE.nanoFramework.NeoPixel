@@ -1,5 +1,7 @@
+#if DEBUG
 using System;
 using System.Diagnostics;
+#endif
 using CCSWE.nanoFramework.NeoPixel.Benchmarks.Reference;
 using nanoFramework.Benchmark;
 
