@@ -14,7 +14,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Playground
             }
             else
             {
-                int num = command.Duration0 % 256;
+                var num = command.Duration0 % 256;
                 data[0] = (byte)num;
                 data[1] = (byte)((command.Level0 ? 128 : 0) + (command.Duration0 - num) / 256);
             }
@@ -26,7 +26,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Playground
             }
             else
             {
-                int num = command.Duration1 % 256;
+                var num = command.Duration1 % 256;
                 data[2] = (byte)num;
                 data[3] = (byte)((command.Level1 ? 128 : 0) + (command.Duration1 - num) / 256);
             }

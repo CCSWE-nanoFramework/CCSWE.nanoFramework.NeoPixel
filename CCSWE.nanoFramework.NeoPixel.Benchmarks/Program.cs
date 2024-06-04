@@ -3,6 +3,7 @@
 using System;
 using System.Diagnostics;
 #endif
+using System;
 using System.Device.Gpio;
 using System.Diagnostics;
 using CCSWE.nanoFramework.NeoPixel.Benchmarks.Reference;
@@ -24,6 +25,8 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
             var gpioController = new GpioController();
             gpioController.OpenPin(39, PinMode.Output).Write(PinValue.High);
 */
+            Console.WriteLine("Running benchmarks...");
+
             BenchmarkRunner.RunClass(typeof(ColorConverterBenchmarks));
 
 /*            BenchmarkRunner.RunClass(typeof(NeoPixelStripBenchmarks));
