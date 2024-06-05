@@ -32,8 +32,9 @@
     <Compile Include="Reference\SampleNeoPixelStripBenchmarks.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CCSWE.nanoFramework.Math, Version=0.1.26.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CCSWE.nanoFramework.Math.0.1.26\lib\CCSWE.nanoFramework.Math.dll</HintPath>
+    <Reference Include="CCSWE.nanoFramework.Math, Version=0.1.28.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CCSWE.nanoFramework.Math.0.1.28\lib\CCSWE.nanoFramework.Math.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Iot.Device.Ws28xx.Esp32">
       <HintPath>..\packages\nanoFramework.Iot.Device.Ws28xx.Esp32.1.2.548\lib\Iot.Device.Ws28xx.Esp32.dll</HintPath>
