@@ -50,7 +50,10 @@ namespace CCSWE.nanoFramework.NeoPixel
 
             foreach (var value in values)
             {
-                max = Math.Max(max, value);
+#pragma warning disable CS0618 // Type or member is obsolete
+                // There appears to be an issue, triggered by scaling Color.Green, with the Math.Max implementation. Gather more details.
+                max = FastMath.Max(max, value);
+#pragma warning restore CS0618 // Type or member is obsolete
             }
 
             return max;
@@ -70,7 +73,10 @@ namespace CCSWE.nanoFramework.NeoPixel
 
             foreach (var value in values)
             {
-                min = Math.Min(min, value);
+#pragma warning disable CS0618 // Type or member is obsolete
+                // There appears to be an issue, triggered by scaling Color.Green, with the Math.Min implementation. Gather more details.
+                min = FastMath.Min(min, value);
+#pragma warning restore CS0618 // Type or member is obsolete
             }
 
             return min;
