@@ -1,6 +1,9 @@
-﻿using System;
+﻿//#define SCALE_PRECISE
+
+using System;
 using System.Drawing;
 
+// TODO: Consider moving this stuff to a Graphics library
 namespace CCSWE.nanoFramework.NeoPixel
 {
     // Based on: https://gist.github.com/UweKeim/fb7f829b852c209557bc49c51ba14c8b
@@ -36,50 +39,26 @@ namespace CCSWE.nanoFramework.NeoPixel
             return v1;
         }
 
-        /// <summary>
-        /// Determines the maximum value of all the numbers provided in the variable argument list.
-        /// </summary>
-        private static double Max(params double[] values)
+        private static void MinMax(out double min, out double max, double r, double g, double b)
         {
-            if (values is null)
+            if (r > g)
             {
-                throw new ArgumentNullException(nameof(values));
+                max = r;
+                min = g;
             }
-
-            var max = values[0];
-
-            foreach (var value in values)
+            else
             {
-#pragma warning disable CS0618 // Type or member is obsolete
-                // There appears to be an issue, triggered by scaling Color.Green, with the Math.Max implementation. Gather more details.
-                max = FastMath.Max(max, value);
-#pragma warning restore CS0618 // Type or member is obsolete
+                max = g;
+                min = r;
             }
-
-            return max;
-        }
-
-        /// <summary>
-        /// Determines the minimum value of all the numbers provided in the variable argument list.
-        /// </summary>
-        private static double Min(params double[] values)
-        {
-            if (values is null)
+            if (b > max)
             {
-                throw new ArgumentNullException(nameof(values));
+                max = b;
             }
-
-            var min = values[0];
-
-            foreach (var value in values)
+            else if (b < min)
             {
-#pragma warning disable CS0618 // Type or member is obsolete
-                // There appears to be an issue, triggered by scaling Color.Green, with the Math.Min implementation. Gather more details.
-                min = FastMath.Min(min, value);
-#pragma warning restore CS0618 // Type or member is obsolete
+                min = b;
             }
-
-            return min;
         }
 
         /// <summary>
@@ -91,11 +70,15 @@ namespace CCSWE.nanoFramework.NeoPixel
         {
             var brightnessAdjusted = FastMath.Clamp(brightness, 0.0, 1.0);
 
-            // TODO: Investigate why I elected to convert to HSL and then to HSB
-            var hslColor = ToHslColor(color);
-            var hsbColor = new HsbColor(hslColor.Hue, hslColor.Saturation, 100 * brightnessAdjusted, hslColor.Alpha);
+#if SCALE_PRECISE
+            var originalColor = ToHsbColor(color);
+            var scaledColor = new HsbColor(originalColor.Hue, originalColor.Saturation, 100 * brightnessAdjusted, originalColor.Alpha);
+#else
+            // TODO: GetHue() and GetSaturation() are supposed to be HSL values but are currently incorrectly implemented as HSV. Defect opened and will need to respond accordingly.
+            var scaledColor = new HsbColor(color.GetHue(), color.GetSaturation() * 100.0d, 100.0d * brightnessAdjusted, color.A);
+#endif
 
-            return hsbColor.ToColor();
+            return scaledColor.ToColor();
         }
 
         internal static Color ToColor(HsbColor hsb)
@@ -227,8 +210,8 @@ namespace CCSWE.nanoFramework.NeoPixel
             var g = color.G / 255d;
             var b = color.B / 255d;
 
-            var min = Min(r, g, b);
-            var max = Max(r, g, b);
+            MinMax(out var min, out var max, r, g, b);
+            
             var delta = max - min;
 
             double hue = 0;
@@ -285,8 +268,8 @@ namespace CCSWE.nanoFramework.NeoPixel
             var g = color.G / 255.0;
             var b = color.B / 255.0;
 
-            var min = Min(r, g, b); //Min. value of RGB
-            var max = Max(r, g, b); //Max. value of RGB
+            MinMax(out var min, out var max, r, g, b);
+
             var delta = max - min; //Delta RGB value
 
             double hue;
