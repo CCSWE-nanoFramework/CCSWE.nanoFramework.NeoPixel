@@ -1,6 +1,4 @@
-﻿//#define SCALE_PRECISE
-
-using System;
+﻿using System;
 using System.Drawing;
 
 // TODO: Consider moving this stuff to a Graphics library
