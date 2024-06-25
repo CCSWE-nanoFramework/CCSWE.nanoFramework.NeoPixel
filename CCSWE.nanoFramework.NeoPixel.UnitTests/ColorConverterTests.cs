@@ -31,7 +31,7 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
                 new[] { 127, 127, 0 },
                 new[] { 95, 31, 127 },
                 new[] { 127, 82, 0 },
-                new[] { 127, 9, 73 },
+                new[] { 127, 10, 73 },
                 new[] { 0, 127, 127 },
             };
 
@@ -115,7 +115,7 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
                 new[] { 0, 100, 50 },
                 new[] { 120, 100, 25 },
                 new[] { 240, 100, 50 },
-                new[] { 59, 100, 50 },
+                new[] { 60, 100, 50 },
                 new[] { 280, 60, 49 },
                 new[] { 38, 100, 50 },
                 new[] { 327, 100, 53 },

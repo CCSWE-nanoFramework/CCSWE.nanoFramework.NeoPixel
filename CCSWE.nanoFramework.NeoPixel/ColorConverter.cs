@@ -69,14 +69,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         public static Color ScaleBrightness(Color color, double brightness)
         {
             var brightnessAdjusted = FastMath.Clamp(brightness, 0.0, 1.0);
-
-#if SCALE_PRECISE
-            var originalColor = ToHsbColor(color);
-            var scaledColor = new HsbColor(originalColor.Hue, originalColor.Saturation, 100 * brightnessAdjusted, originalColor.Alpha);
-#else
-            // TODO: GetHue() and GetSaturation() are supposed to be HSL values but are currently incorrectly implemented as HSV. Defect opened and will need to respond accordingly.
-            var scaledColor = new HsbColor(color.GetHue(), color.GetSaturation() * 100.0d, 100.0d * brightnessAdjusted, color.A);
-#endif
+            var scaledColor = ToHsbColor(color, brightnessAdjusted);
 
             return scaledColor.ToColor();
         }
@@ -190,22 +183,15 @@ namespace CCSWE.nanoFramework.NeoPixel
                 blue = Hue2Rgb(var1, var2, hue - 1.0 / 3.0);
             }
 
-            var nRed = (int)(red * 255.0);//Convert.ToInt32(red * 255.0);
-            var nGreen = (int)(green * 255.0);//Convert.ToInt32(green * 255.0);
-            var nBlue = (int)(blue * 255.0);//Convert.ToInt32(blue * 255.0);
+            var nRed = (int)(red * 255.0);
+            var nGreen = (int)(green * 255.0);
+            var nBlue = (int)(blue * 255.0);
 
             return Color.FromArgb(hsl.Alpha, nRed, nGreen, nBlue);
         }
 
-        internal static HsbColor ToHsbColor(Color color)
+        internal static HsbColor ToHsbColor(Color color, double brightness = -1.0d)
         {
-            // _NOTE #1: Even though we're dealing with a very small range of
-            // numbers, the accuracy of all calculations is fairly important.
-            // For this reason, I've opted to use double data types instead
-            // of float, which gives us a little bit extra precision (recall
-            // that precision is the number of significant digits with which
-            // the result is expressed).
-
             var r = color.R / 255d;
             var g = color.G / 255d;
             var b = color.B / 255d;
@@ -214,118 +200,93 @@ namespace CCSWE.nanoFramework.NeoPixel
             
             var delta = max - min;
 
-            double hue = 0;
-            double saturation;
-            var brightness = max * 100;
+            var hue = 0d;
+            var saturation = 0d;
+            brightness = brightness < 0 ? max * 100 : brightness * 100;
 
-            if (FastMath.Abs(max - 0) < double.Epsilon || FastMath.Abs(delta - 0) < double.Epsilon)
+            if (min == 0)
             {
-                hue = 0;
-                saturation = 0;
+                saturation = 100;
             }
-            else
+            else if (max != 0)
             {
-                // _NOTE #2: FXCop insists that we avoid testing for floating 
-                // point equality (CA1902). Instead, we'll perform a series of
-                // tests with the help of Double.Epsilon that will provide 
-                // a more accurate equality evaluation.
-
-                if (FastMath.Abs(min - 0) < double.Epsilon)
-                {
-                    saturation = 100;
-                }
-                else
-                {
-                    saturation = delta / max * 100;
-                }
-
-                if (FastMath.Abs(r - max) < double.Epsilon)
-                {
-                    hue = (g - b) / delta;
-                }
-                else if (FastMath.Abs(g - max) < double.Epsilon)
-                {
-                    hue = 2 + (b - r) / delta;
-                }
-                else if (FastMath.Abs(b - max) < double.Epsilon)
-                {
-                    hue = 4 + (r - g) / delta;
-                }
+                saturation = delta / max * 100;
             }
 
-            hue *= 60;
-            if (hue < 0)
+            // ReSharper disable CompareOfFloatsByEqualityOperator
+            if (max == r && g >= b)
             {
-                hue += 360;
+                hue = 60 * (g - b) / delta;
             }
+            else if (max == r && g < b)
+            {
+                hue = 60 * (g - b) / delta + 360;
+            }
+            else if (max == g)
+            {
+                hue = 60 * (b - r) / delta + 120;
+            }
+            else if (max == b)
+            {
+                hue = 60 * (r - g) / delta + 240;
+            }
+            // ReSharper restore CompareOfFloatsByEqualityOperator
 
             return new HsbColor(hue, saturation, brightness, color.A);
         }
 
         internal static HslColor ToHslColor(Color color)
         {
-            var r = color.R / 255.0; //Where RGB values = 0 ÷ 255
-            var g = color.G / 255.0;
-            var b = color.B / 255.0;
+            var r = color.R;
+            var g = color.G;
+            var b = color.B;
 
             MinMax(out var min, out var max, r, g, b);
 
-            var delta = max - min; //Delta RGB value
+            var delta = max - min;
 
             double hue;
             double saturation;
-            var light = (max + min) / 2;
+            var light = (max + min) / (byte.MaxValue * 2f);
 
-            if (FastMath.Abs(delta - 0) < double.Epsilon) //This is a gray, no chroma...
+            if (r == g && g == b)
             {
-                hue = 0; //HSL results = 0 ÷ 1
+                hue = 0;
                 saturation = 0;
-                // UK:
-                //				s = 1.0;
             }
-            else //Chromatic data...
+            else
             {
-                if (light < 0.5)
+                // ReSharper disable CompareOfFloatsByEqualityOperator
+                if (r == max)
                 {
-                    saturation = delta / (max + min);
+                    hue = (g - b) / delta;
+                }
+                else if (g == max)
+                {
+                    hue = (b - r) / delta + 2f;
                 }
                 else
                 {
-                    saturation = delta / (2.0 - max - min);
+                    hue = (r - g) / delta + 4f;
+                }
+                // ReSharper restore CompareOfFloatsByEqualityOperator
+
+                hue *= 60f;
+                if (hue < 0f)
+                {
+                    hue += 360f;
                 }
 
-                var deltaR = ((max - r) / 6.0 + delta / 2.0) / delta;
-                var deltaG = ((max - g) / 6.0 + delta / 2.0) / delta;
-                var deltaB = ((max - b) / 6.0 + delta / 2.0) / delta;
-
-                if (FastMath.Abs(r - max) < double.Epsilon)
+                var div = max + min;
+                if (div > byte.MaxValue)
                 {
-                    hue = deltaB - deltaG;
-                }
-                else if (FastMath.Abs(g - max) < double.Epsilon)
-                {
-                    hue = 1.0 / 3.0 + deltaR - deltaB;
-                }
-                else if (FastMath.Abs(b - max) < double.Epsilon)
-                {
-                    hue = 2.0 / 3.0 + deltaG - deltaR;
-                }
-                else
-                {
-                    hue = 0.0;
+                    div = byte.MaxValue * 2 - max - min;
                 }
 
-                if (hue < 0.0)
-                {
-                    hue += 1.0;
-                }
-                if (hue > 1.0)
-                {
-                    hue -= 1.0;
-                }
+                saturation = (max - min) / div;
             }
 
-            return new HslColor(hue * 360.0, saturation * 100.0, light * 100.0, color.A);
+            return new HslColor(hue, saturation * 100.0, light * 100.0, color.A);
         }
     }
 }
