@@ -10,7 +10,7 @@ namespace CCSWE.nanoFramework.NeoPixel
     /// </summary>
     internal readonly struct HsbColor
     {
-        public HsbColor(double hue, double saturation, double brightness, int alpha)
+        public HsbColor(double hue, double saturation, double brightness, byte alpha)
         {
             Hue = hue;
             Saturation = saturation;
@@ -36,7 +36,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <summary>
         /// Gets or sets the alpha. Values from 0 to 255.
         /// </summary>
-        public int Alpha { get; }
+        public byte Alpha { get; }
 
         /// <inheritdoc />
         public override bool Equals(object? obj)
