@@ -10,7 +10,7 @@ namespace CCSWE.nanoFramework.NeoPixel
     /// </summary>
     internal readonly struct HslColor
     {
-        public HslColor(double hue, double saturation, double light, int alpha)
+        public HslColor(double hue, double saturation, double light, byte alpha)
         {
             Hue = hue;
             Saturation = saturation;
@@ -36,7 +36,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <summary>
         /// Gets the alpha. Values from 0 to 255
         /// </summary>
-        public int Alpha { get; }
+        public byte Alpha { get; }
 
         /// <inheritdoc />
         public override bool Equals(object? obj)
@@ -75,9 +75,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <inheritdoc />
         public override string ToString()
         {
-            return Alpha < 255
-                ? $"hsla({Hue}, {Saturation}%, {Light}%, {Alpha / 255f})"
-                : $"hsl({Hue}, {Saturation}%, {Light}%)";
+            return $"Hue: {Hue}; Saturation: {Saturation}; Light: {Light}; Alpha: {Alpha}";
         }
     }
 }
