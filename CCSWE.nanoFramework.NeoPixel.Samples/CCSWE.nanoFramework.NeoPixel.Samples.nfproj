@@ -34,7 +34,7 @@
       <HintPath>..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Graphics.Core">
-      <HintPath>..\packages\nanoFramework.Graphics.Core.1.2.15\lib\nanoFramework.Graphics.Core.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Graphics.Core.1.2.10\lib\nanoFramework.Graphics.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
