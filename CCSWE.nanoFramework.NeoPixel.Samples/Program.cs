@@ -60,8 +60,8 @@ namespace CCSWE.nanoFramework.NeoPixel.Samples
         private static void FadeBrightness(NeoPixelStrip strip, Color color, short duration = 250)
         {
             var steps = 20;
-            var brightness = 0.0;
-            var brightnessStep = 1.0 / steps;
+            var brightness = 0.0f;
+            var brightnessStep = 1.0f / steps;
             var stepDuration = (duration / steps) / 2;
 
             strip.Clear();

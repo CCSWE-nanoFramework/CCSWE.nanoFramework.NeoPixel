@@ -10,7 +10,7 @@ namespace CCSWE.nanoFramework.NeoPixel
     /// </summary>
     internal readonly struct HsbColor
     {
-        public HsbColor(double hue, double saturation, double brightness, byte alpha)
+        public HsbColor(float hue, float saturation, float brightness, byte alpha)
         {
             Hue = hue;
             Saturation = saturation;
@@ -21,17 +21,17 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <summary>
         /// Gets or sets the hue. Values from 0 to 360.
         /// </summary>
-        public double Hue { get; }
+        public float Hue { get; }
 
         /// <summary>
         /// Gets or sets the saturation. Values from 0 to 100.
         /// </summary>
-        public double Saturation { get; }
+        public float Saturation { get; }
 
         /// <summary>
         /// Gets or sets the brightness. Values from 0 to 100.
         /// </summary>
-        public double Brightness { get; }
+        public float Brightness { get; }
 
         /// <summary>
         /// Gets or sets the alpha. Values from 0 to 255.
@@ -46,9 +46,9 @@ namespace CCSWE.nanoFramework.NeoPixel
                 return false;
             }
 
-            return FastMath.Abs(Hue - color.Hue) < double.Epsilon &&
-                   FastMath.Abs(Saturation - color.Saturation) < double.Epsilon &&
-                   FastMath.Abs(Brightness - color.Brightness) < double.Epsilon &&
+            return FastMath.Abs(Hue - color.Hue) < float.Epsilon &&
+                   FastMath.Abs(Saturation - color.Saturation) < float.Epsilon &&
+                   FastMath.Abs(Brightness - color.Brightness) < float.Epsilon &&
                    Alpha == color.Alpha;
         }
 

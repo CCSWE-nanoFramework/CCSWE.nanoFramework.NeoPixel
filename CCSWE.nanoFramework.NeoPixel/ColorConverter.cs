@@ -11,33 +11,33 @@ namespace CCSWE.nanoFramework.NeoPixel
     /// </summary>
     public static class ColorConverter
     {
-        private static double Hue2Rgb(double v1, double v2, double vH)
+        private static float Hue2Rgb(float v1, float v2, float vH)
         {
             if (vH < 0.0)
             {
-                vH += 1.0;
+                vH += 1.0f;
             }
             if (vH > 1.0)
             {
-                vH -= 1.0;
+                vH -= 1.0f;
             }
-            if (6.0 * vH < 1.0)
+            if (6.0f * vH < 1.0f)
             {
-                return v1 + (v2 - v1) * 6.0 * vH;
+                return v1 + (v2 - v1) * 6.0f * vH;
             }
-            if (2.0 * vH < 1.0)
+            if (2.0f * vH < 1.0f)
             {
                 return v2;
             }
-            if (3.0 * vH < 2.0)
+            if (3.0f * vH < 2.01f)
             {
-                return v1 + (v2 - v1) * (2.0 / 3.0 - vH) * 6.0;
+                return v1 + (v2 - v1) * (2.0f / 3.0f - vH) * 6.0f;
             }
 
             return v1;
         }
 
-        private static void MinMax(out double min, out double max, double r, double g, double b)
+        private static void MinMax(out float min, out float max, float r, float g, float b)
         {
             if (r > g)
             {
@@ -64,9 +64,9 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// </summary>
         /// <param name="color">The <see cref="Color"/> to adjust.</param>
         /// <param name="brightness">The brightness value between 0.0 and 1.0.</param>
-        public static Color ScaleBrightness(Color color, double brightness)
+        public static Color ScaleBrightness(Color color, float brightness)
         {
-            var brightnessAdjusted = FastMath.Clamp(brightness, 0.0, 1.0);
+            var brightnessAdjusted = FastMath.Clamp(brightness, 0.0f, 1.0f);
             var scaledColor = ToHsbColor(color, brightnessAdjusted);
 
             return scaledColor.ToColor();
@@ -74,13 +74,13 @@ namespace CCSWE.nanoFramework.NeoPixel
 
         internal static Color ToColor(HsbColor hsb)
         {
-            double red = 0, green = 0, blue = 0;
+            float red = 0, green = 0, blue = 0;
 
             var hue = hsb.Hue;
-            var saturation = hsb.Saturation / 100.0;
-            var brightness = hsb.Brightness / 100.0;
+            var saturation = hsb.Saturation / 100.0f;
+            var brightness = hsb.Brightness / 100.0f;
 
-            if (FastMath.Abs(saturation - 0) < double.Epsilon)
+            if (FastMath.Abs(saturation - 0) < float.Epsilon)
             {
                 red = brightness;
                 green = brightness;
@@ -149,13 +149,13 @@ namespace CCSWE.nanoFramework.NeoPixel
 
         internal static Color ToColor(HslColor hsl)
         {
-            double red, green, blue;
+            float red, green, blue;
 
-            var hue = hsl.Hue / 360.0;
-            var saturation = hsl.Saturation / 100.0;
-            var light = hsl.Light / 100.0;
+            var hue = hsl.Hue / 360.0f;
+            var saturation = hsl.Saturation / 100.0f;
+            var light = hsl.Light / 100.0f;
 
-            if (FastMath.Abs(saturation - 0.0) < double.Epsilon)
+            if (FastMath.Abs(saturation - 0.0f) < float.Epsilon)
             {
                 red = light;
                 green = light;
@@ -163,43 +163,43 @@ namespace CCSWE.nanoFramework.NeoPixel
             }
             else
             {
-                double var2;
+                float var2;
 
-                if (light < 0.5)
+                if (light < 0.5f)
                 {
-                    var2 = light * (1.0 + saturation);
+                    var2 = light * (1.0f + saturation);
                 }
                 else
                 {
                     var2 = light + saturation - saturation * light;
                 }
 
-                var var1 = 2.0 * light - var2;
+                var var1 = 2.0f * light - var2;
 
-                red = Hue2Rgb(var1, var2, hue + 1.0 / 3.0);
+                red = Hue2Rgb(var1, var2, hue + 1.0f / 3.0f);
                 green = Hue2Rgb(var1, var2, hue);
-                blue = Hue2Rgb(var1, var2, hue - 1.0 / 3.0);
+                blue = Hue2Rgb(var1, var2, hue - 1.0f / 3.0f);
             }
 
-            var nRed = (int)(red * 255.0);
-            var nGreen = (int)(green * 255.0);
-            var nBlue = (int)(blue * 255.0);
+            var nRed = (int)(red * 255.0f);
+            var nGreen = (int)(green * 255.0f);
+            var nBlue = (int)(blue * 255.0f);
 
             return Color.FromArgb(hsl.Alpha, nRed, nGreen, nBlue);
         }
 
-        internal static HsbColor ToHsbColor(Color color, double brightness = -1.0d)
+        internal static HsbColor ToHsbColor(Color color, float brightness = -1.0f)
         {
-            var r = color.R / 255d;
-            var g = color.G / 255d;
-            var b = color.B / 255d;
+            var r = color.R / 255f;
+            var g = color.G / 255f;
+            var b = color.B / 255f;
 
             MinMax(out var min, out var max, r, g, b);
             
             var delta = max - min;
 
-            var hue = 0d;
-            var saturation = 0d;
+            var hue = 0f;
+            var saturation = 0f;
             brightness = brightness < 0 ? max * 100 : brightness * 100;
 
             if (min == 0)
@@ -243,8 +243,8 @@ namespace CCSWE.nanoFramework.NeoPixel
 
             var delta = max - min;
 
-            double hue;
-            double saturation;
+            float hue;
+            float saturation;
             var light = (max + min) / (byte.MaxValue * 2f);
 
             if (r == g && g == b)
@@ -284,7 +284,7 @@ namespace CCSWE.nanoFramework.NeoPixel
                 saturation = (max - min) / div;
             }
 
-            return new HslColor(hue, saturation * 100.0, light * 100.0, color.A);
+            return new HslColor(hue, saturation * 100.0f, light * 100.0f, color.A);
         }
     }
 }

@@ -160,7 +160,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// </summary>
         /// <param name="color">The <see cref="Color"/>.</param>
         /// <param name="brightness">The brightness value between 0.0 and 1.0.</param>
-        public void Fill(Color color, double brightness)
+        public void Fill(Color color, float brightness)
         {
             Fill(ColorConverter.ScaleBrightness(color, brightness));
         }
@@ -217,7 +217,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <remarks>If you are using the same <see cref="Color"/> for multiple LEDs it
         /// is more efficient to use <see cref="ColorConverter.ScaleBrightness"/> to
         /// adjust the brightness and pass that to <see cref="SetLed(int,Color)"/></remarks>
-        public void SetLed(int index, Color color, double brightness)
+        public void SetLed(int index, Color color, float brightness)
         {
             SetLed(index, ColorConverter.ScaleBrightness(color, brightness));
         }
