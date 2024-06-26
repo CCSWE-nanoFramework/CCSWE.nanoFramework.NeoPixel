@@ -6,7 +6,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
     [IterationCount(100)]
     public class ColorConverterBenchmarks: BenchmarkBase
     {
-        private const double Brightness = 0.5f;
+        private const float Brightness = 0.5f;
         private const int Iterations = 100;
 
         [Benchmark]

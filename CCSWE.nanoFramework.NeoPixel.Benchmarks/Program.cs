@@ -26,12 +26,12 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
 
             Console.WriteLine("Running benchmarks...");
 
-            //BenchmarkRunner.RunClass(typeof(DevelopmentBenchmarks));
+            BenchmarkRunner.RunClass(typeof(DevelopmentBenchmarks));
 
             BenchmarkRunner.RunClass(typeof(ColorConverterBenchmarks));
-            BenchmarkRunner.RunClass(typeof(NeoPixelStripBenchmarks));
+            //BenchmarkRunner.RunClass(typeof(NeoPixelStripBenchmarks));
             //BenchmarkRunner.RunClass(typeof(SampleNeoPixelStripBenchmarks));
-            BenchmarkRunner.RunClass(typeof(Ws28xxNeoPixelStripBenchmarks));
+            //BenchmarkRunner.RunClass(typeof(Ws28xxNeoPixelStripBenchmarks));
 
             Thread.Sleep(Timeout.Infinite);
         }

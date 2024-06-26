@@ -31,7 +31,7 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
                 new[] { 127, 127, 0 },
                 new[] { 95, 31, 127 },
                 new[] { 127, 82, 0 },
-                new[] { 127, 10, 73 },
+                new[] { 127, 9, 73 },
                 new[] { 0, 127, 127 },
             };
 
@@ -40,7 +40,7 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
                 var test = tests[i];
                 var expected = expectations[i];
 
-                var actual = ColorConverter.ScaleBrightness(test, 0.5);
+                var actual = ColorConverter.ScaleBrightness(test, 0.5f);
 
                 //Console.WriteLine($"ScaleBrightness_should_return_correct_color: {test}");
                 Assert.AreEqual(expected[0], actual.R);

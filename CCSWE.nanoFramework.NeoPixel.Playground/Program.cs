@@ -8,9 +8,6 @@ namespace CCSWE.nanoFramework.NeoPixel.Playground
 {
     public class Program
     {
-        // ReSharper disable once InconsistentNaming
-        private static readonly Random _random = new();
-
         public static void Main()
         {
             var testColors = new[] { Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.DarkOrchid, Color.Orange, Color.DeepPink, Color.DarkCyan };
@@ -22,7 +19,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Playground
                 Console.WriteLine($"Starting with {testColor}");
                 for (var j = 10; j >= 1; j--)
                 {
-                    var brightness = j * 0.1d;
+                    var brightness = j * 0.1f;
                     var color = ColorConverter.ScaleBrightness(testColor, brightness);
 
                     Console.WriteLine($"{brightness}: R:{color.R} G:{color.G} B:{color.B} - {color}");
@@ -39,7 +36,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Playground
 
             while (true)
             {
-                var color = testColors[index];// GetRandomColor();
+                var color = testColors[index];
 
                 for (var i = 0; i < 4; i++)
                 {
@@ -54,14 +51,14 @@ namespace CCSWE.nanoFramework.NeoPixel.Playground
 
                 for (var i = 1; i <= 10; i++)
                 {
-                    strip.SetLed(0, color, i * 0.1d);
+                    strip.SetLed(0, color, i * 0.1f);
                     strip.Update();
                     Thread.Sleep(delay);
                 }
 
                 for (var i = 10; i >= 1; i--)
                 {
-                    strip.SetLed(0, color, i * 0.1d);
+                    strip.SetLed(0, color, i * 0.1f);
                     strip.Update();
                     Thread.Sleep(delay);
                 }
@@ -73,11 +70,6 @@ namespace CCSWE.nanoFramework.NeoPixel.Playground
             }
 
             Thread.Sleep(Timeout.Infinite);
-        }
-
-        public static Color GetRandomColor()
-        {
-            return Color.FromArgb(_random.Next(256), _random.Next(256), _random.Next(256));
         }
     }
 }
