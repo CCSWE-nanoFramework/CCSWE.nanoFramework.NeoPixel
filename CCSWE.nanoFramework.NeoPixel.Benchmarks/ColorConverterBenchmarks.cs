@@ -6,12 +6,51 @@ namespace CCSWE.nanoFramework.NeoPixel.Benchmarks
     [IterationCount(100)]
     public class ColorConverterBenchmarks: BenchmarkBase
     {
+        private const double Brightness = 0.5f;
+        private const int Iterations = 100;
+
         [Benchmark]
         public void ScaleBrightness()
         {
-            RunIterations(100, () =>
+            RunIterations(Iterations, () =>
             {
-                var result = ColorConverter.ScaleBrightness(TestData.Color, 0.5f);
+                var scaledColor = ColorConverter.ScaleBrightness(TestData.Color, Brightness);
+            });
+        }
+
+        [Benchmark]
+        public void ToColor_FromHsbColor()
+        {
+            RunIterations(Iterations, () =>
+            {
+                var color = ColorConverter.ToColor(TestData.HsbColor);
+            });
+        }
+
+        [Benchmark]
+        public void ToColor_FromHslColor()
+        {
+            RunIterations(Iterations, () =>
+            {
+                var color = ColorConverter.ToColor(TestData.HslColor);
+            });
+        }
+
+        [Benchmark]
+        public void ToHsbColor()
+        {
+            RunIterations(Iterations, () =>
+            {
+                var color = ColorConverter.ToHsbColor(TestData.Color);
+            });
+        }
+
+        [Benchmark]
+        public void ToHslColor()
+        {
+            RunIterations(Iterations, () =>
+            {
+                var color = ColorConverter.ToHslColor(TestData.Color);
             });
         }
     }
