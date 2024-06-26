@@ -21,6 +21,7 @@
   <ItemGroup>
     <Compile Include="BenchmarkBase.cs" />
     <Compile Include="ColorConverterBenchmarks.cs" />
+    <Compile Include="DevelopmentBenchmarks.cs" />
     <Compile Include="Reference\SampleNeoPixelStrip.cs" />
     <Compile Include="TestData.cs" />
     <Compile Include="Reference\Ws28xxNeoPixelStripBenchmarks.cs" />

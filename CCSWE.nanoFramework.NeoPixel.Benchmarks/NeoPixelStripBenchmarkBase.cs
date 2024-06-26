@@ -2,7 +2,7 @@
 {
     public abstract class NeoPixelStripBenchmarkBase
     {
-        public const int IterationCount = 50;
+        public const int IterationCount = 100;
 
         public abstract void Setup();
 

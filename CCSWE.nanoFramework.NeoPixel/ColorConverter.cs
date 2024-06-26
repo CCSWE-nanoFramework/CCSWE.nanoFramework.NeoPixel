@@ -140,9 +140,9 @@ namespace CCSWE.nanoFramework.NeoPixel
                 }
             }
 
-            var nRed = (int)(red * 255);// Convert.ToInt32(red * 255);
-            var nGreen = (int)(green * 255);//Convert.ToInt32(green * 255);
-            var nBlue = (int)(blue * 255);//Convert.ToInt32(blue * 255);
+            var nRed = (int)(red * 255);
+            var nGreen = (int)(green * 255);
+            var nBlue = (int)(blue * 255);
 
             return Color.FromArgb(hsb.Alpha, nRed, nGreen, nBlue);
         }

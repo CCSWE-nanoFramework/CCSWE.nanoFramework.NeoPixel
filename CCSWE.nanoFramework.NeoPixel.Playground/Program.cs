@@ -1,32 +1,83 @@
+using CCSWE.nanoFramework.NeoPixel.Drivers;
+using System;
+using System.Device.Gpio;
+using System.Drawing;
 using System.Threading;
 
 namespace CCSWE.nanoFramework.NeoPixel.Playground
 {
     public class Program
     {
+        // ReSharper disable once InconsistentNaming
+        private static readonly Random _random = new();
+
         public static void Main()
         {
-            /* Ws2812b - These values are close to spec */
-            /*
-            var onePulse = new RmtCommand(32, true, 18, false);
-            var zeroPulse = new RmtCommand(16, true, 34, false);
-            var resetCommand = new RmtCommand(2000, false, 2000, false);
-            */
+            var testColors = new[] { Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.DarkOrchid, Color.Orange, Color.DeepPink, Color.DarkCyan };
 
-            /* Ws2812c */
-            /*
-            var onePulse = new RmtCommand(52, true, 52, false);
-            var zeroPulse = new RmtCommand(14, true, 52, false);
-            var resetCommand = new RmtCommand(1400, false, 1400, false);
-            */
+            for (var i = 0; i < testColors.Length; i++)
+            {
+                var testColor = testColors[i];
 
-            /*
-            var onePulseBytes = RmtCommandSerializer.SerializeCommand(onePulse);
-            var zeroPulseBytes = RmtCommandSerializer.SerializeCommand(zeroPulse);
-            var resetCommandBytes = RmtCommandSerializer.SerializeCommand(resetCommand);
-            */
+                Console.WriteLine($"Starting with {testColor}");
+                for (var j = 10; j >= 1; j--)
+                {
+                    var brightness = j * 0.1d;
+                    var color = ColorConverter.ScaleBrightness(testColor, brightness);
+
+                    Console.WriteLine($"{brightness}: R:{color.R} G:{color.G} B:{color.B} - {color}");
+                }
+            }
+
+            // Enable LDO2 on UM FeatherS3
+            var gpioController = new GpioController();
+            gpioController.OpenPin(39, PinMode.Output).Write(PinValue.High);
+
+            var delay = 125;
+            var index = 0;
+            var strip = new NeoPixelStrip(40, 1, new Ws2812B());
+
+            while (true)
+            {
+                var color = testColors[index];// GetRandomColor();
+
+                for (var i = 0; i < 4; i++)
+                {
+                    strip.SetLed(0, i % 2 == 0 ? color : Color.Black);
+                    strip.Update();
+                    Thread.Sleep(delay);
+                }
+
+                strip.Clear();
+                strip.Update();
+                Thread.Sleep(delay);
+
+                for (var i = 1; i <= 10; i++)
+                {
+                    strip.SetLed(0, color, i * 0.1d);
+                    strip.Update();
+                    Thread.Sleep(delay);
+                }
+
+                for (var i = 10; i >= 1; i--)
+                {
+                    strip.SetLed(0, color, i * 0.1d);
+                    strip.Update();
+                    Thread.Sleep(delay);
+                }
+
+                if (++index >= testColors.Length)
+                {
+                    index = 0;
+                }
+            }
 
             Thread.Sleep(Timeout.Infinite);
+        }
+
+        public static Color GetRandomColor()
+        {
+            return Color.FromArgb(_random.Next(256), _random.Next(256), _random.Next(256));
         }
     }
 }
