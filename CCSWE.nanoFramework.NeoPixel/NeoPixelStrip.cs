@@ -155,6 +155,10 @@ namespace CCSWE.nanoFramework.NeoPixel
             }
         }
 
+        /// <inheritdoc cref="Fill(System.Drawing.Color,float)"/>
+        [Obsolete("Use float instead of double")]
+        public void Fill(Color color, double brightness) => Fill(color, (float)brightness);
+
         /// <summary>
         /// Fill the strip with a <see cref="Color"/>.
         /// </summary>
@@ -208,6 +212,10 @@ namespace CCSWE.nanoFramework.NeoPixel
             }
         }
 
+        /// <inheritdoc cref="SetLed(int,System.Drawing.Color,float)"/>
+        [Obsolete("Use float instead of double")]
+        public void SetLed(int index, Color color, double brightness) => SetLed(index, color, (float)brightness);
+
         /// <summary>
         /// Sets the <see cref="Color"/> for a LED. 
         /// </summary>
@@ -215,7 +223,7 @@ namespace CCSWE.nanoFramework.NeoPixel
         /// <param name="color">The <see cref="Color"/>.</param>
         /// <param name="brightness">The brightness value between 0.0 and 1.0.</param>
         /// <remarks>If you are using the same <see cref="Color"/> for multiple LEDs it
-        /// is more efficient to use <see cref="ColorConverter.ScaleBrightness"/> to
+        /// is more efficient to use <see cref="ColorConverter.ScaleBrightness(Color,float)"/> to
         /// adjust the brightness and pass that to <see cref="SetLed(int,Color)"/></remarks>
         public void SetLed(int index, Color color, float brightness)
         {
