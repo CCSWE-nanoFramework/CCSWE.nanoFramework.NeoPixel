@@ -35,8 +35,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CCSWE.nanoFramework.Math, Version=0.1.29.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CCSWE.nanoFramework.Math.0.1.29\lib\CCSWE.nanoFramework.Math.dll</HintPath>
+    <Reference Include="CCSWE.nanoFramework.Math, Version=0.1.30.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CCSWE.nanoFramework.Math.0.1.30\lib\CCSWE.nanoFramework.Math.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>
