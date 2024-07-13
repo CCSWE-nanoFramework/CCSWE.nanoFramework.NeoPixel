@@ -207,7 +207,11 @@ namespace CCSWE.nanoFramework.NeoPixel
             var saturation = 0f;
             brightness = brightness < 0 ? max * 100 : brightness * 100;
 
-            if (min == 0)
+            if (max == 0 || delta == 0)
+            {
+                saturation = 0;
+            }
+            else if (min == 0)
             {
                 saturation = 100;
             }
@@ -217,7 +221,11 @@ namespace CCSWE.nanoFramework.NeoPixel
             }
 
             // ReSharper disable CompareOfFloatsByEqualityOperator
-            if (max == r && g >= b)
+            if (max == 0 || delta == 0)
+            {
+                hue = 0;
+            }
+            else if (max == r && g >= b)
             {
                 hue = 60 * (g - b) / delta;
             }

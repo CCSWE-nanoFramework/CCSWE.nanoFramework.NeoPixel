@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using nanoFramework.TestFramework;
 
 namespace CCSWE.nanoFramework.NeoPixel.UnitTests
@@ -11,6 +12,7 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
         {
             var tests = new[]
             {
+                Color.White,
                 Color.FromHex("#26C467"),
                 Color.Red,
                 Color.Green,
@@ -24,6 +26,7 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
 
             var expectations = new[]
             {
+                new[] { 127, 127, 127},
                 new[] { 24, 127, 67 },
                 new[] { 127, 0, 0 },
                 new[] { 0, 127, 0 },
@@ -54,6 +57,8 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
         {
             var tests = new[]
             {
+                Color.White,
+                Color.Black,
                 Color.FromHex("#26C467"),
                 Color.Red, 
                 Color.Green, 
@@ -67,6 +72,8 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
 
             var expectations = new[]
             {
+                new[] { 0, 0, 100 },
+                new[] { 0, 0, 0 },
                 new[] { 144, 80, 76 },
                 new[] { 0, 100, 100 },
                 new[] { 120, 100, 50 },
@@ -97,6 +104,8 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
         {
             var tests = new[]
             {
+                Color.White,
+                Color.Black,
                 Color.FromHex("#26C467"),
                 Color.Red, 
                 Color.Green, 
@@ -111,6 +120,8 @@ namespace CCSWE.nanoFramework.NeoPixel.UnitTests
 
             var expectations = new[]
             {
+                new[] { 0, 0, 100 },
+                new[] { 0, 0, 0 },
                 new[] { 144, 67, 45 },
                 new[] { 0, 100, 50 },
                 new[] { 120, 100, 25 },

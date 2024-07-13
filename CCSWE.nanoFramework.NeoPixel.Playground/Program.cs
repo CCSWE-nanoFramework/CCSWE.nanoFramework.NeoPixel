@@ -10,7 +10,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Playground
     {
         public static void Main()
         {
-            var testColors = new[] { Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.DarkOrchid, Color.Orange, Color.DeepPink, Color.DarkCyan };
+            var testColors = new[] { Color.White, Color.Black, Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.DarkOrchid, Color.Orange, Color.DeepPink, Color.DarkCyan };
 
             for (var i = 0; i < testColors.Length; i++)
             {
