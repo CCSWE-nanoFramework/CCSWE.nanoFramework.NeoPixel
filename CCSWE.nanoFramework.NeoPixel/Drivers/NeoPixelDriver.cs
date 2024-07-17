@@ -1,4 +1,5 @@
 ﻿using CCSWE.nanoFramework.NeoPixel.Rmt;
+using nanoFramework.Hardware.Esp32.Rmt;
 
 namespace CCSWE.nanoFramework.NeoPixel.Drivers
 {
@@ -8,10 +9,10 @@ namespace CCSWE.nanoFramework.NeoPixel.Drivers
     public abstract class NeoPixelDriver
     {
         /// <summary>
-        /// The frequency of the APB clock used for RMT timing.
+        /// The frequency of the clock used for RMT timing.
         /// </summary>
-        /// <remarks>My understanding is that all but one ESP32 use an 80 MHz APB clock, so we'll stick with that for now.</remarks>
-        protected const float ApbClockFrequency = 80_000_000.0f; // 80 MHz
+        /// <remarks>Get frequency of clock used by RMT.</remarks>
+        protected float SourceClockFrequency = RmtChannel.SourceClockFrequency; 
 
         /// <summary>
         /// Creates the driver to provide the commands required to control the NeoPixel.
@@ -58,7 +59,7 @@ namespace CCSWE.nanoFramework.NeoPixel.Drivers
         /// <summary>
         /// The number of RMT cycles that occur in one second.
         /// </summary>
-        private float RmtCyclesPerSecond => ApbClockFrequency / ClockDivider;
+        private float RmtCyclesPerSecond => SourceClockFrequency / ClockDivider;
 
         /// <summary>
         /// The pulse data for a zero pulse (T0).
