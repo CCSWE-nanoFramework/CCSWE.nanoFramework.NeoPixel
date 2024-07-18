@@ -48,7 +48,7 @@ namespace CCSWE.nanoFramework.NeoPixel
 
             _data[resetIndex + 0] = driver.ResetPulse.Duration0;
             _data[resetIndex + 1] = driver.ResetPulse.Level0;
-            _data[resetIndex + 2] = driver.ResetPulse.Duration0;
+            _data[resetIndex + 2] = driver.ResetPulse.Duration1;
             _data[resetIndex + 3] = driver.ResetPulse.Level1;
 
             _colorOrder = driver.ColorOrder;
