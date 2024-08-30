@@ -4,15 +4,15 @@
     ".NETnanoFramework,Version=v1.0": {
       "CCSWE.nanoFramework.Math": {
         "type": "Direct",
-        "requested": "[0.1.37, 0.1.37]",
-        "resolved": "0.1.37",
-        "contentHash": "dKLVZtT04zRExKL6L8rm5LAPbXoA6J5ltWdJZRLGE9kYAJXRbC0yopt8yHLDhtVDZYForvKCdeWphHyyXRew6w=="
+        "requested": "[0.1.38, 0.1.38]",
+        "resolved": "0.1.38",
+        "contentHash": "WdAGWOtxtLikT0YArsXdZIGKljnR/KgExGh/PE0hcKazGV3xKTYGtyObMrxR3ZuImvi7OP9DeBDuSvQCQW7o8g=="
       },
       "nanoFramework.Benchmark": {
         "type": "Direct",
-        "requested": "[1.0.73, 1.0.73]",
-        "resolved": "1.0.73",
-        "contentHash": "DixfknmwhvW5KDIYmXSNjRSJPf3e1Lxg2FH1pAutDIc65AkA+pYkjV3GV1yUUJBQo6KmYHXsMYpP39IHpoMmiA=="
+        "requested": "[1.0.75, 1.0.75]",
+        "resolved": "1.0.75",
+        "contentHash": "21+fqBsMryXYxqmTJsH0hJ/vn+ut1g/p+t4dRI2meOWiLboHOo1tcs7Mwi8fH2IzV0aumqAV0DWHRp3AygN9dw=="
       },
       "nanoFramework.CoreLibrary": {
         "type": "Direct",
