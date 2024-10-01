@@ -4,9 +4,9 @@
     ".NETnanoFramework,Version=v1.0": {
       "CCSWE.nanoFramework.Math": {
         "type": "Direct",
-        "requested": "[0.1.41, 0.1.41]",
-        "resolved": "0.1.41",
-        "contentHash": "CDh3OEUNhDX/D837Fw93l1sXDEUkrNzO1rMJgIqAlthcT9L2EwYa5F9tt8QpbUhEeoK0t1xBC1VRQKha4eP7fw=="
+        "requested": "[0.1.44, 0.1.44]",
+        "resolved": "0.1.44",
+        "contentHash": "m9A87uW0omz/rYsrjv7geY0d0VSEdmGskDu/9AOrMhYG4xrWdU2YqDqYFeWlrIp1H0BX4ah4beEeFvQPrP/xTQ=="
       },
       "nanoFramework.CoreLibrary": {
         "type": "Direct",
@@ -16,9 +16,9 @@
       },
       "nanoFramework.Graphics.Core": {
         "type": "Direct",
-        "requested": "[1.2.15, 1.2.15]",
-        "resolved": "1.2.15",
-        "contentHash": "JOZ5KYBg0CE+u07vNyTar6MokA1hPZaHzRsDfB9ao8xkzHewxvNtxQ9YGRa9bM7TyD7Z2OYJ0PRColrtkUsLQg=="
+        "requested": "[1.2.21, 1.2.21]",
+        "resolved": "1.2.21",
+        "contentHash": "R6HEmaa1fVdwaQsAAh3xfP8WkElnMXq2HqLvDKe4cFP2XljJ+MLYfA//llKhjC5ZvaGp2ldx4orUBKLNyKtPDQ=="
       },
       "nanoFramework.Hardware.Esp32.Rmt": {
         "type": "Direct",

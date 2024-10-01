@@ -33,26 +33,26 @@
     <Compile Include="Reference\SampleNeoPixelStripBenchmarks.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CCSWE.nanoFramework.Math, Version=0.1.41.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CCSWE.nanoFramework.Math.0.1.41\lib\CCSWE.nanoFramework.Math.dll</HintPath>
+    <Reference Include="CCSWE.nanoFramework.Math, Version=0.1.44.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CCSWE.nanoFramework.Math.0.1.44\lib\CCSWE.nanoFramework.Math.dll</HintPath>
     </Reference>
     <Reference Include="Iot.Device.Ws28xx.Esp32, Version=1.2.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>..\packages\nanoFramework.Iot.Device.Ws28xx.Esp32.1.2.631\lib\Iot.Device.Ws28xx.Esp32.dll</HintPath>
+      <HintPath>..\packages\nanoFramework.Iot.Device.Ws28xx.Esp32.1.2.651\lib\Iot.Device.Ws28xx.Esp32.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>
     </Reference>
-    <Reference Include="nanoFramework.Benchmark, Version=1.0.75.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>..\packages\nanoFramework.Benchmark.1.0.75\lib\nanoFramework.Benchmark.dll</HintPath>
+    <Reference Include="nanoFramework.Benchmark, Version=1.0.76.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.Benchmark.1.0.76\lib\nanoFramework.Benchmark.dll</HintPath>
     </Reference>
-    <Reference Include="nanoFramework.Graphics.Core">
-      <HintPath>..\packages\nanoFramework.Graphics.Core.1.2.15\lib\nanoFramework.Graphics.Core.dll</HintPath>
+    <Reference Include="nanoFramework.Graphics.Core, Version=1.2.21.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.Graphics.Core.1.2.21\lib\nanoFramework.Graphics.Core.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Hardware.Esp32.Rmt, Version=2.0.13.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
       <HintPath>..\packages\nanoFramework.Hardware.Esp32.Rmt.2.0.13\lib\nanoFramework.Hardware.Esp32.Rmt.dll</HintPath>
     </Reference>
-    <Reference Include="nanoFramework.Logging, Version=1.1.108.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>..\packages\nanoFramework.Logging.1.1.108\lib\nanoFramework.Logging.dll</HintPath>
+    <Reference Include="nanoFramework.Logging, Version=1.1.113.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.Logging.1.1.113\lib\nanoFramework.Logging.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.Runtime.Events">
       <HintPath>..\packages\nanoFramework.Runtime.Events.1.11.18\lib\nanoFramework.Runtime.Events.dll</HintPath>
@@ -60,8 +60,8 @@
     <Reference Include="nanoFramework.Runtime.Native">
       <HintPath>..\packages\nanoFramework.Runtime.Native.1.6.12\lib\nanoFramework.Runtime.Native.dll</HintPath>
     </Reference>
-    <Reference Include="nanoFramework.System.Collections">
-      <HintPath>..\packages\nanoFramework.System.Collections.1.5.31\lib\nanoFramework.System.Collections.dll</HintPath>
+    <Reference Include="nanoFramework.System.Collections, Version=1.5.45.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.System.Collections.1.5.45\lib\nanoFramework.System.Collections.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.System.Text">
       <HintPath>..\packages\nanoFramework.System.Text.1.2.54\lib\nanoFramework.System.Text.dll</HintPath>
